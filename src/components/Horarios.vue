@@ -264,8 +264,8 @@
               <span class="text-2xl font-black uppercase tracking-tighter italic">RAMA MUAY THAI</span>
             </div>
             <div class="flex flex-wrap justify-center gap-10">
-              <a href="https://www.instagram.com/ramamuaythaichile/?hl=es" target="_blank" rel="noopener noreferrer" class="text-[10px] font-black uppercase tracking-[0.4em] hover:text-primary transition-colors">Instagram</a>
-              <a href="https://web.facebook.com/media/set/?vanity=RamaMuayThaiCL&set=a.880542258679846&_rdc=1&_rdr#" target="_blank" rel="noopener noreferrer" class="text-[10px] font-black uppercase tracking-[0.4em] hover:text-primary transition-colors">Facebook</a>
+              <button @click="openInstagram" class="text-[10px] font-black uppercase tracking-[0.4em] hover:text-primary transition-colors cursor-pointer">Instagram</button>
+              <button @click="openFacebook" class="text-[10px] font-black uppercase tracking-[0.4em] hover:text-primary transition-colors cursor-pointer">Facebook</button>
               <span class="text-[10px] font-black uppercase tracking-[0.4em] text-white/20">YouTube</span>
               <span class="text-[10px] font-black uppercase tracking-[0.4em] text-white/20">TikTok</span>
             </div>
@@ -281,6 +281,29 @@
 
 <script setup>
 import Navbar from './Navbar.vue';
+const openApp = (appUri, webUrl) => {
+  const start = Date.now();
+  window.location.href = appUri;
+  setTimeout(() => {
+    if (Date.now() - start < 1500) {
+      window.open(webUrl, '_blank');
+    }
+  }, 1000);
+};
+
+const openInstagram = () => {
+  const username = 'ramamuaythaichile';
+  const webUrl = `https://www.instagram.com/${username}/`;
+  const appUri = `instagram://user?username=${username}`;
+  openApp(appUri, webUrl);
+};
+
+const openFacebook = () => {
+  const pageId = '304525552948189';
+  const webUrl = 'https://web.facebook.com/RamaMuayThaiCL';
+  const appUri = `fb://page/${pageId}`;
+  openApp(appUri, webUrl);
+};
 </script>
 
 <style scoped>
