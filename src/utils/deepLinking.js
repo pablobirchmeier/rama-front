@@ -37,12 +37,13 @@ export const openBoxMagic = () => {
   const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
   if (isAndroid) {
-    // Android Intent for BoxMagic Members
-    const intentUri = 'intent://#Intent;scheme=boxmagic;package=com.boxmagic.members;end';
+    // Correct Android Intent for BoxMagic Members
+    // Note: The package name is 'app.boxmagic.members'
+    const intentUri = `intent://members.boxmagic.app/a/g?o=pi-e#Intent;scheme=https;package=app.boxmagic.members;end`;
     openApp(intentUri, webUrl);
   } else if (isIOS) {
-    // iOS Custom Scheme (usually handled via Universal Links for members.boxmagic.app)
-    // Fallback to the specific portal URL
+    // iOS Universal Link
+    // If installed, iOS will intercept this URL and open the app automatically.
     window.location.href = webUrl;
   } else {
     // Desktop: directly to web
