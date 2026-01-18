@@ -30,20 +30,20 @@ export const openFacebook = () => {
  * Opens the BoxMagic application or redirects to the student portal/app stores.
  */
 export const openBoxMagic = () => {
-  const webUrl = 'https://boxmagic.cl/student';
+  const webUrl = 'https://members.boxmagic.app/a/g?o=pi-e';
   
-  // BoxMagic common schemes and android intent
+  // BoxMagic Members configuration
   const isAndroid = /Android/i.test(navigator.userAgent);
   const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
   if (isAndroid) {
-    // Android Intent for BoxMagic
-    const intentUri = 'intent://#Intent;scheme=boxmagic;package=app.boxmagic.cl;end';
+    // Android Intent for BoxMagic Members
+    const intentUri = 'intent://#Intent;scheme=boxmagic;package=com.boxmagic.members;end';
     openApp(intentUri, webUrl);
   } else if (isIOS) {
-    // iOS Custom Scheme
-    const appUri = 'boxmagic://';
-    openApp(appUri, webUrl);
+    // iOS Custom Scheme (usually handled via Universal Links for members.boxmagic.app)
+    // Fallback to the specific portal URL
+    window.location.href = webUrl;
   } else {
     // Desktop: directly to web
     window.open(webUrl, '_blank');
