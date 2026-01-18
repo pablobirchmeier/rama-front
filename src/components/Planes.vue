@@ -134,7 +134,7 @@
               </div>
               <div class="lg:col-span-7 h-[450px] bg-white/5 rounded-2xl relative overflow-hidden group border border-white/10 shadow-2xl">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d3328.718870183354!2d-70.62744742431679!3d-33.45661419730248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c563969046c7%3A0x6b4fb24e3c9d96c9!2sTegualda%201895%2C%207770355%20%C3%91u%C3%B1oa%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1705541245678!5m2!1ses!2scl" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3328.9144699268622!2d-70.62505492346145!3d-33.45153479756916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c57d4fc3a813%3A0x6e5c7fe96c3a1c73!2zVGVndWFsZGEgMTg5NSwgw5F1w7FvYSwgUmVnacOzbiBNZXRyb3BvbGl0YW5h!5e0!3m2!1ses!2scl!4v1768700809075!5m2!1ses!2scl" 
                   width="100%" 
                   height="100%" 
                   style="border:0; filter: invert(90%) hue-rotate(180deg) brightness(85%) contrast(100%);" 
