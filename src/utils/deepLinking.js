@@ -32,21 +32,27 @@ export const openFacebook = () => {
 export const openBoxMagic = () => {
   const webUrl = 'https://members.boxmagic.app/a/g?o=pi-e';
   
-  // BoxMagic Members configuration
   const isAndroid = /Android/i.test(navigator.userAgent);
   const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
   if (isAndroid) {
-    // Correct Android Intent for BoxMagic Members
-    // Note: The package name is 'app.boxmagic.members'
+    // Intent más agresivo para Android para forzar apertura de app
     const intentUri = `intent://members.boxmagic.app/a/g?o=pi-e#Intent;scheme=https;package=app.boxmagic.members;end`;
-    openApp(intentUri, webUrl);
+    window.location.href = intentUri;
   } else if (isIOS) {
-    // iOS Universal Link
-    // If installed, iOS will intercept this URL and open the app automatically.
-    window.location.href = webUrl;
+    // En iPhone intentamos forzar el esquema directo de la app (si existe)
+    // El bundle ID suele ser el esquema por defecto en muchas apps
+    const start = Date.now();
+    window.location.href = 'app.boxmagic.members://';
+    
+    // Si en 1 segundo no detectamos que se abrió la app (el timer sigue corriendo), vamos a la web
+    setTimeout(() => {
+      if (Date.now() - start < 1500) {
+        window.location.href = webUrl;
+      }
+    }, 1000);
   } else {
-    // Desktop: directly to web
+    // Desktop: directamente a web
     window.open(webUrl, '_blank');
   }
 };
