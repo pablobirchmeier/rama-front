@@ -108,7 +108,7 @@
               </svg>
             </div>
             <h1 class="text-white text-3xl md:text-5xl font-black uppercase italic tracking-tighter">
-              <span class="text-primary italic">RAMA</span> HORARIOS 2025
+              <span class="text-primary italic">RAMA</span> HORARIOS 2026
             </h1>
           </div>
         </div>
@@ -256,24 +256,7 @@
           </button>
         </div>
 
-        <!-- Footer -->
-        <footer class="w-full py-20 bg-black/50 border-t border-white/10 opacity-60 mt-32">
-          <div class="max-w-[1100px] mx-auto flex flex-col items-center gap-10">
-            <div class="flex items-center gap-4 text-primary">
-              <span class="material-symbols-outlined text-4xl">sports_mma</span>
-              <span class="text-2xl font-black uppercase tracking-tighter italic">RAMA MUAY THAI</span>
-            </div>
-            <div class="flex flex-wrap justify-center gap-10">
-              <button @click="openInstagram" class="text-[10px] font-black uppercase tracking-[0.4em] hover:text-primary transition-colors cursor-pointer">Instagram</button>
-              <button @click="openFacebook" class="text-[10px] font-black uppercase tracking-[0.4em] hover:text-primary transition-colors cursor-pointer">Facebook</button>
-              <span class="text-[10px] font-black uppercase tracking-[0.4em] text-white/20">YouTube</span>
-              <span class="text-[10px] font-black uppercase tracking-[0.4em] text-white/20">TikTok</span>
-            </div>
-            <p class="text-[9px] font-black uppercase tracking-[0.5em] text-center">
-              © 2026 RAMA MUAY THAI SCHOOL. EL HONOR DE LA TRADICIÓN.
-            </p>
-          </div>
-        </footer>
+        <Footer />
       </main>
     </div>
   </div>
@@ -281,29 +264,7 @@
 
 <script setup>
 import Navbar from './Navbar.vue';
-const openApp = (appUri, webUrl) => {
-  const start = Date.now();
-  window.location.href = appUri;
-  setTimeout(() => {
-    if (Date.now() - start < 1500) {
-      window.open(webUrl, '_blank');
-    }
-  }, 1000);
-};
-
-const openInstagram = () => {
-  const username = 'ramamuaythaichile';
-  const webUrl = `https://www.instagram.com/${username}/`;
-  const appUri = `instagram://user?username=${username}`;
-  openApp(appUri, webUrl);
-};
-
-const openFacebook = () => {
-  const pageId = '304525552948189';
-  const webUrl = 'https://web.facebook.com/RamaMuayThaiCL';
-  const appUri = `fb://page/${pageId}`;
-  openApp(appUri, webUrl);
-};
+import Footer from './Footer.vue';
 </script>
 
 <style scoped>

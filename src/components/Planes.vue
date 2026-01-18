@@ -9,7 +9,7 @@
           <section class="py-16" id="pricing">
             <div class="text-center mb-12">
               <span class="text-primary font-bold tracking-[0.2em] uppercase text-xs">Elige tu Camino</span>
-              <h2 class="text-white text-4xl md:text-5xl font-black leading-tight tracking-tight mt-2 italic uppercase">PLANES 2025</h2>
+              <h2 class="text-white text-4xl md:text-5xl font-black leading-tight tracking-tight mt-2 italic uppercase">PLANES 2026</h2>
             </div>
             
             <!-- Slider for 12 Plans -->
@@ -80,7 +80,7 @@
                   <span class="material-symbols-outlined text-6xl text-primary">play_circle</span>
                 </div>
               </div>
-              <div class="bg-center bg-cover rounded-xl overflow-hidden group relative" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCaPLc__13vXC4PRG3BmE3TgPPGJUcLOveR8Y9gAwcEEUCwS-EB5QL9jEq9GqI39tJQo_R-kecxo1dKID3xtJ3FUnHF8Gv-Zy55rs2vKRi-FOMyXa0zl4wDUp4fcHSnhcnb3shl7lsOZnnJTr8dxkIDLVCosUMg42t9mHJFeMCKFfB5lqFjiieObAmKi4-pJcU0bKhaKsGAJDSwfN6Nk3jw_gBZnU-0pSLu9IyB__7Ml8tlwT3HJVJdUhSlmsDhUTiYZ4StiCuRupk");'></div>
+              <div class="bg-center bg-cover rounded-xl overflow-hidden group relative" style='background-image: url("/galeria_clase.jpg");'></div>
               <div class="masonry-item-tall bg-center bg-cover rounded-xl overflow-hidden group relative" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA8zFZsgYLurXBBYQqO_oZX7OYY6oskqaYrJKybzfAJ6vlcI1BN2mFx8BmEGPaFPDn4fZwKjqdcEbcmtl47EAErQsU0ekqd7EDe0JlZVqkoekgZ_LitiXWs_jnPDW4jweciPNMGNMhRfhh8TykgQzJf9hwcZhYkreHKlXUIa4FX1frD9rLixIdx6Zhpp1XnuWI1h2Mqn6ACtPQNLluBXQh3qoTAWA_y3xARlYLYz3I5XGXuO666smCDvxoX-sgCX3kMRCoFT1vqNxI");'></div>
             </div>
           </section>
@@ -148,25 +148,7 @@
           </section>
         </main>
 
-        <footer class="border-t border-white/10 py-10 px-10">
-          <div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-3">
-              <div class="size-5 text-primary">
-                <svg fill="currentColor" viewBox="0 0 48 48"><path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"></path></svg>
-              </div>
-              <span class="font-bold tracking-widest text-sm uppercase">Rama Muay Thai</span>
-            </div>
-            <div class="flex items-center gap-6">
-              <button @click="openInstagram" class="text-white/40 hover:text-primary transition-colors cursor-pointer">
-                <svg class="size-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.247 2.242 1.308 3.607.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.332 2.633-1.308 3.608-.975.975-2.242 1.247-3.607 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.332-3.608-1.308-.975-.975-1.247-2.242-1.308-3.607-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.332-2.633 1.308-3.608.975-.975 2.242-1.247 3.607-1.308 1.266-.058-1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-              </button>
-              <button @click="openFacebook" class="text-white/40 hover:text-primary transition-colors cursor-pointer">
-                <svg class="size-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24 l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
-              </button>
-            </div>
-            <p class="text-[11px] text-white/40 uppercase tracking-widest">© 2024 RAMA MUAY THAI. TODOS LOS DERECHOS RESERVADOS.</p>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </div>
   </div>
@@ -175,6 +157,7 @@
 <script setup>
 import { ref } from 'vue';
 import Navbar from './Navbar.vue';
+import Footer from './Footer.vue';
 
 const sliderRef = ref(null);
 const isDragging = ref(false);
@@ -312,29 +295,6 @@ const plans = [
     ]
   }
 ];
-const openApp = (appUri, webUrl) => {
-  const start = Date.now();
-  window.location.href = appUri;
-  setTimeout(() => {
-    if (Date.now() - start < 1500) {
-      window.open(webUrl, '_blank');
-    }
-  }, 1000);
-};
-
-const openInstagram = () => {
-  const username = 'ramamuaythaichile';
-  const webUrl = `https://www.instagram.com/${username}/`;
-  const appUri = `instagram://user?username=${username}`;
-  openApp(appUri, webUrl);
-};
-
-const openFacebook = () => {
-  const pageId = '304525552948189';
-  const webUrl = 'https://web.facebook.com/RamaMuayThaiCL';
-  const appUri = `fb://page/${pageId}`;
-  openApp(appUri, webUrl);
-};
 </script>
 
 <style scoped>
