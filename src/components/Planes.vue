@@ -200,86 +200,6 @@ const scrollPrev = () => {
 
 const plans = [
   {
-    name: "Plan Ilimitado Entrenamientos Grupales Semestral",
-    price: "$390.000",
-    features: [
-      "Pack ilimitado de reservas con acceso liberado.",
-      "Válido por 180 días."
-    ]
-  },
-  {
-    name: "Plan Ilimitado Entrenamientos Grupales Trimestral",
-    price: "$210.000",
-    features: [
-      "Pack ilimitado de reservas con acceso liberado.",
-      "Válido por 90 días."
-    ]
-  },
-  {
-    name: "Plan Ilimitado Entrenamientos Grupales",
-    price: "$75.000",
-    features: [
-      "Pack ilimitado de reservas con acceso liberado.",
-      "Válido por 30 días."
-    ]
-  },
-  {
-    name: "Plan 16 Entrenamientos Grupales Semestral",
-    price: "$290.000",
-    features: [
-      "Pack de 96 reservas con acceso liberado.",
-      "Válido por 180 días."
-    ]
-  },
-  {
-    name: "Plan 16 Entrenamientos Grupales Trimestral",
-    price: "$150.000",
-    features: [
-      "Pack de 48 reservas con acceso liberado.",
-      "Válido por 90 días."
-    ]
-  },
-  {
-    name: "Plan 16 Entrenamientos Grupales",
-    price: "$55.000",
-    features: [
-      "Pack de 16 reservas con acceso liberado.",
-      "Válido por 30 días."
-    ]
-  },
-  {
-    name: "Plan AM Entrenamientos Grupales",
-    price: "$50.000",
-    features: [
-      "Pack de 12 reservas jornada AM (7 a 13hr).",
-      "Válido por 30 días."
-    ]
-  },
-  {
-    name: "Plan 8 Entrenamientos Grupales",
-    price: "$45.000",
-    features: [
-      "Pack de 8 reservas con acceso liberado.",
-      "Válido por 30 días."
-    ]
-  },
-  {
-    name: "Plan Estudiante Entrenamientos Grupales",
-    price: "$40.000",
-    features: [
-      "Pack de 12 reservas con acceso liberado.",
-      "Válido por 30 días. *requiere certificado."
-    ]
-  },
-  {
-    name: "Plan 4 Training Pads",
-    price: "$75.000",
-    features: [
-      "Pack de 4 reservas 1 a 1 con un Kru (45min).",
-      "Válido para 30 días."
-    ]
-  },
-  {
     name: "Grupal",
     price: "$10.000",
     features: [
@@ -292,6 +212,86 @@ const plans = [
     features: [
       "Sesión 1 a 1 con un Kru (45min).",
       "Válido por un día."
+    ]
+  },
+  {
+    name: "Plan Estudiante Entrenamientos Grupales",
+    price: "$40.000",
+    features: [
+      "Pack de 12 reservas con acceso liberado.",
+      "Válido por 30 días. *requiere certificado."
+    ]
+  },
+  {
+    name: "Plan 8 Entrenamientos Grupales",
+    price: "$45.000",
+    features: [
+      "Pack de 8 reservas con acceso liberado.",
+      "Válido por 30 días."
+    ]
+  },
+  {
+    name: "Plan AM Entrenamientos Grupales",
+    price: "$50.000",
+    features: [
+      "Pack de 12 reservas jornada AM (7 a 13hr).",
+      "Válido por 30 días."
+    ]
+  },
+  {
+    name: "Plan 16 Entrenamientos Grupales",
+    price: "$55.000",
+    features: [
+      "Pack de 16 reservas con acceso liberado.",
+      "Válido por 30 días."
+    ]
+  },
+  {
+    name: "Plan Ilimitado Entrenamientos Grupales",
+    price: "$75.000",
+    features: [
+      "Pack ilimitado de reservas con acceso liberado.",
+      "Válido por 30 días."
+    ]
+  },
+  {
+    name: "Plan 4 Training Pads",
+    price: "$75.000",
+    features: [
+      "Pack de 4 reservas 1 a 1 con un Kru (45min).",
+      "Válido para 30 días."
+    ]
+  },
+  {
+    name: "Plan 16 Entrenamientos Grupales Trimestral",
+    price: "$150.000",
+    features: [
+      "Pack de 48 reservas con acceso liberado.",
+      "Válido por 90 días."
+    ]
+  },
+  {
+    name: "Plan Ilimitado Entrenamientos Grupales Trimestral",
+    price: "$210.000",
+    features: [
+      "Pack ilimitado de reservas con acceso liberado.",
+      "Válido por 90 días."
+    ]
+  },
+  {
+    name: "Plan 16 Entrenamientos Grupales Semestral",
+    price: "$290.000",
+    features: [
+      "Pack de 96 reservas con acceso liberado.",
+      "Válido por 180 días."
+    ]
+  },
+  {
+    name: "Plan Ilimitado Entrenamientos Grupales Semestral",
+    price: "$390.000",
+    features: [
+      "Pack ilimitado de reservas con acceso liberado.",
+      "Válido por 180 días."
     ]
   }
 ];

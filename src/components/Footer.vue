@@ -15,7 +15,7 @@
       </div>
       <div class="pt-12 border-t border-accent/10 w-full">
         <p class="text-slate-400 dark:text-slate-600 text-xs font-medium tracking-widest uppercase">
-          © 2026 Rama Muay Thai School. El Honor de la Tradición.
+          © 2026 Rama Muay Thai. El Honor de la Tradición.
         </p>
       </div>
     </div>
