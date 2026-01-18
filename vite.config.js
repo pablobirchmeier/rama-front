@@ -1,12 +1,9 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import tailwindcss from '@tailwindcss/vite'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    tailwindcss(),
-  ],
-  base: './', // Use relative paths for assets to work on GitHub Pages subfolders
-})
+  plugins: [vue(), tailwindcss()],
+  base: "/rama-front/", // Nombre del repositorio para GitHub Pages
+});

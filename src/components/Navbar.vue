@@ -9,6 +9,7 @@
       <h2 class="text-white text-lg md:text-xl font-bold leading-tight tracking-tight uppercase">Rama <span class="text-primary">Muay Thai</span></h2>
     </div>
     <div class="flex flex-1 justify-end gap-4 md:gap-8">
+      <!-- Desktop Menu -->
       <div class="hidden md:flex items-center gap-9">
         <router-link to="/" class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal">Inicio</router-link>
         <router-link to="/planes" class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal">Planes</router-link>
@@ -17,12 +18,33 @@
       <button class="flex min-w-[100px] md:min-w-[120px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 md:px-5 bg-primary text-black text-sm font-bold hover:scale-105 transition-transform">
         <span class="uppercase tracking-widest text-[11px] md:text-sm">Unirse</span>
       </button>
-      <div class="md:hidden flex items-center text-primary">
-        <span class="material-symbols-outlined text-3xl">menu</span>
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden flex items-center text-primary cursor-pointer" @click="isMenuOpen = !isMenuOpen">
+        <span class="material-symbols-outlined text-3xl">{{ isMenuOpen ? 'close' : 'menu' }}</span>
       </div>
     </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <transition
+      enter-active-class="transition duration-200 ease-out"
+      enter-from-class="translate-y-[-10px] opacity-0"
+      enter-to-class="translate-y-0 opacity-100"
+      leave-active-class="transition duration-150 ease-in"
+      leave-from-class="translate-y-0 opacity-100"
+      leave-to-class="translate-y-[-10px] opacity-0"
+    >
+      <div v-if="isMenuOpen" class="absolute top-full left-0 w-full bg-black/95 border-b border-white/10 flex flex-col items-center py-6 gap-6 md:hidden">
+        <router-link to="/" @click="isMenuOpen = false" class="text-white hover:text-primary transition-colors text-lg font-medium">Inicio</router-link>
+        <router-link to="/planes" @click="isMenuOpen = false" class="text-white hover:text-primary transition-colors text-lg font-medium">Planes</router-link>
+        <router-link to="/horarios" @click="isMenuOpen = false" class="text-white hover:text-primary transition-colors text-lg font-medium">Horarios</router-link>
+        <button class="bg-primary text-black font-bold py-3 px-8 rounded-lg uppercase tracking-widest text-sm" @click="isMenuOpen = false">Unirse</button>
+      </div>
+    </transition>
   </header>
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
+const isMenuOpen = ref(false);
 </script>
