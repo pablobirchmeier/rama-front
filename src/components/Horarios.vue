@@ -263,10 +263,11 @@
               <span class="material-symbols-outlined text-4xl">sports_mma</span>
               <span class="text-2xl font-black uppercase tracking-tighter italic">RAMA MUAY THAI</span>
             </div>
-            <div class="flex gap-10">
-              <span class="text-[10px] font-black uppercase tracking-[0.4em] hover:text-primary cursor-pointer transition-colors">Instagram</span>
-              <span class="text-[10px] font-black uppercase tracking-[0.4em] hover:text-primary cursor-pointer transition-colors">YouTube</span>
-              <span class="text-[10px] font-black uppercase tracking-[0.4em] hover:text-primary cursor-pointer transition-colors">TikTok</span>
+            <div class="flex flex-wrap justify-center gap-10">
+              <a href="https://www.instagram.com/ramamuaythaichile/?hl=es" target="_blank" rel="noopener noreferrer" class="text-[10px] font-black uppercase tracking-[0.4em] hover:text-primary transition-colors">Instagram</a>
+              <a href="https://web.facebook.com/media/set/?vanity=RamaMuayThaiCL&set=a.880542258679846&_rdc=1&_rdr#" target="_blank" rel="noopener noreferrer" class="text-[10px] font-black uppercase tracking-[0.4em] hover:text-primary transition-colors">Facebook</a>
+              <span class="text-[10px] font-black uppercase tracking-[0.4em] text-white/20">YouTube</span>
+              <span class="text-[10px] font-black uppercase tracking-[0.4em] text-white/20">TikTok</span>
             </div>
             <p class="text-[9px] font-black uppercase tracking-[0.5em] text-center">
               © 2026 RAMA MUAY THAI SCHOOL. EL HONOR DE LA TRADICIÓN.
