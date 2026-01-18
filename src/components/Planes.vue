@@ -39,7 +39,7 @@
                         <span class="text-white/40 text-sm font-medium">/plan</span>
                       </div>
                     </div>
-                    <button class="w-full flex cursor-pointer items-center justify-center rounded-lg h-12 bg-white/10 text-white text-sm font-bold uppercase tracking-widest hover:bg-white/20 transition-colors mt-auto">
+                    <button @click="openBoxMagic" class="w-full flex cursor-pointer items-center justify-center rounded-lg h-12 bg-white/10 text-white text-sm font-bold uppercase tracking-widest hover:bg-white/20 transition-colors mt-auto">
                       Empezar
                     </button>
                     <div class="flex flex-col gap-4 pt-4 border-t border-white/5">
@@ -158,6 +158,7 @@
 import { ref } from 'vue';
 import Navbar from './Navbar.vue';
 import Footer from './Footer.vue';
+import { openBoxMagic } from '../utils/deepLinking';
 
 const sliderRef = ref(null);
 const isDragging = ref(false);

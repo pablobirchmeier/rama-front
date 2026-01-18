@@ -250,7 +250,10 @@
           <p class="text-white/60 text-lg md:text-xl font-medium uppercase tracking-wide">
             ¿NUEVO EN EL MUAY THAI? <span class="text-primary font-black italic">COMIENZA TU VIAJE HOY MISMO.</span>
           </p>
-          <button class="group flex h-16 items-center justify-center gap-4 rounded-xl bg-primary px-10 hover:brightness-110 hover:scale-105 transition-all duration-300 shadow-[0_0_40px_rgba(255,215,0,0.2)]">
+          <button 
+            @click="openBoxMagic"
+            class="group flex h-16 items-center justify-center gap-4 rounded-xl bg-primary px-10 hover:brightness-110 hover:scale-105 transition-all duration-300 shadow-[0_0_40px_rgba(255,215,0,0.2)]"
+          >
             <span class="material-symbols-outlined text-black font-bold text-3xl">confirmation_number</span>
             <span class="text-black text-sm font-black uppercase tracking-[0.2em] italic">Reserva tu Clase Gratis</span>
           </button>
@@ -265,6 +268,7 @@
 <script setup>
 import Navbar from './Navbar.vue';
 import Footer from './Footer.vue';
+import { openBoxMagic } from '../utils/deepLinking';
 </script>
 
 <style scoped>

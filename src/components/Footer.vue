@@ -23,27 +23,5 @@
 </template>
 
 <script setup>
-const openApp = (appUri, webUrl) => {
-  const start = Date.now();
-  window.location.href = appUri;
-  setTimeout(() => {
-    if (Date.now() - start < 1500) {
-      window.open(webUrl, '_blank');
-    }
-  }, 1000);
-};
-
-const openInstagram = () => {
-  const username = 'ramamuaythaichile';
-  const webUrl = `https://www.instagram.com/${username}/`;
-  const appUri = `instagram://user?username=${username}`;
-  openApp(appUri, webUrl);
-};
-
-const openFacebook = () => {
-  const pageId = '304525552948189';
-  const webUrl = 'https://web.facebook.com/RamaMuayThaiCL';
-  const appUri = `fb://page/${pageId}`;
-  openApp(appUri, webUrl);
-};
+import { openInstagram, openFacebook } from '../utils/deepLinking';
 </script>

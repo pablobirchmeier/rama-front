@@ -15,7 +15,10 @@
         <router-link to="/planes" class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal">Planes</router-link>
         <router-link to="/horarios" class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal">Horarios</router-link>
       </div>
-      <button class="flex min-w-[100px] md:min-w-[120px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 md:px-5 bg-primary text-black text-sm font-bold hover:scale-105 transition-transform">
+      <button 
+        @click="openBoxMagic"
+        class="flex min-w-[100px] md:min-w-[120px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 md:px-5 bg-primary text-black text-sm font-bold hover:scale-105 transition-transform"
+      >
         <span class="uppercase tracking-widest text-[11px] md:text-sm">Unirse</span>
       </button>
       <!-- Mobile Menu Button -->
@@ -37,7 +40,10 @@
         <router-link to="/" @click="isMenuOpen = false" class="text-white hover:text-primary transition-colors text-lg font-medium">Inicio</router-link>
         <router-link to="/planes" @click="isMenuOpen = false" class="text-white hover:text-primary transition-colors text-lg font-medium">Planes</router-link>
         <router-link to="/horarios" @click="isMenuOpen = false" class="text-white hover:text-primary transition-colors text-lg font-medium">Horarios</router-link>
-        <button class="bg-primary text-black font-bold py-3 px-8 rounded-lg uppercase tracking-widest text-sm" @click="isMenuOpen = false">Unirse</button>
+        <button 
+          @click="openBoxMagic(); isMenuOpen = false"
+          class="bg-primary text-black font-bold py-3 px-8 rounded-lg uppercase tracking-widest text-sm"
+        >Unirse</button>
       </div>
     </transition>
   </header>
@@ -45,6 +51,7 @@
 
 <script setup>
 import { ref } from 'vue';
+import { openBoxMagic } from '../utils/deepLinking';
 
 const isMenuOpen = ref(false);
 </script>
