@@ -269,7 +269,7 @@
               <span class="text-[10px] font-black uppercase tracking-[0.4em] hover:text-primary cursor-pointer transition-colors">TikTok</span>
             </div>
             <p class="text-[9px] font-black uppercase tracking-[0.5em] text-center">
-              © 2025 RAMA MUAY THAI SCHOOL. EL HONOR DE LA TRADICIÓN.
+              © 2026 RAMA MUAY THAI SCHOOL. EL HONOR DE LA TRADICIÓN.
             </p>
           </div>
         </footer>
