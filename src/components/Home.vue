@@ -5,16 +5,27 @@
       <section class="relative min-h-[95vh] flex flex-col items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
           <div class="absolute inset-0 hero-overlay z-10"></div>
-          <img class="w-full h-full object-cover" alt="Muay Thai training in Rama Muay Thai" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvyjBaHUvGYc_QrM-_BjIE0zyOMqKMSaQEnskpIH1Bd2W4uliKeDlP55z907CGwXdZfQjtcsTb4sfGods8BK-xox3jZopKW1E0K5q4K6eCpmnuJ68vsqx9pO6sWdsbi59dEoOQug5gs5kniih8Gg0U0u8TEBs_WIb-LuVekyy-ctoq77Ff_UznnJ3HwSCxtNRxcFWJRG7Tn-npCX7Jet4jN79bbLRIMBk-RYhgJJQuapUxtpIa5OhedwS9I7YyW5oDH_cEFkkGndA"/>
+          <video
+            class="w-full h-full object-cover"
+            poster="/inicio.jpg"
+            src="/Sparring%20Profe%20Ramiro%20vs%20Omar.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+          ></video>
         </div>
         <div class="relative z-20 max-w-[1000px] w-full px-6 text-center">
           <div class="inline-flex items-center gap-2 mb-8 px-5 py-2 rounded-full border border-accent/50 bg-black/40 text-accent backdrop-blur-sm">
             <span class="material-symbols-outlined text-sm">workspace_premium</span>
             <span class="text-xs font-bold uppercase tracking-[0.25em]">Tradición • Respeto • Poder</span>
           </div>
-          <h1 class="text-white text-5xl md:text-8xl font-black leading-[1.05] tracking-tighter mb-8 uppercase drop-shadow-2xl">
-            RAMA MUAY THAI <br class="hidden md:block"/> <span class="text-gold-gradient">ESCUELA DE BOXEO TAILANDÉS</span>
-          </h1>
+          <img
+            src="/logo_letra_negra.png"
+            alt="Rama Muay Thai"
+            class="mx-auto mb-8 w-full max-w-md md:max-w-2xl h-auto drop-shadow-2xl"
+          />
           <p class="text-slate-200 text-lg md:text-2xl font-light max-w-2xl mx-auto mb-12 leading-relaxed">
             Domina el arte de las ocho extremidades en el corazón de la tradición. 
             Entrena con el espíritu de un guerrero Rama.
