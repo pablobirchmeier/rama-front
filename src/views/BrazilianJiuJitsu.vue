@@ -100,19 +100,19 @@ const secciones = [
   {
     label: '01 / El Suelo',
     titulo: 'Cuando el Combate Baja',
-    texto: 'En el piso, el más fuerte no siempre gana. Gana el que controla la posición. Acá aprendes guardia, montada, lateral, espalda — las casas desde donde se trabaja. Antes de aprender a someter, hay que aprender a no quedarse abajo.',
+    texto: 'En el piso, el más fuerte no siempre gana. Gana el que controla la posición. Aquí aprendes guardia, montada, lateral, espalda — las casas desde donde se trabaja. Antes de aprender a someter, hay que aprender a no quedarse abajo.',
     imagenIzquierda: true,
   },
   {
     label: '02 / Palanca',
     titulo: 'Técnica Sobre Fuerza',
-    texto: 'El jiu jitsu se inventó para que el chico chico le ganara al grandote. La palanca, el ángulo correcto, el peso bien apoyado — eso vence a la fuerza bruta. Acá no necesitás ser el más fuerte, necesitás ser el más preciso. El cuerpo se reeduca para usar mecánica, no músculo.',
+    texto: 'El jiu jitsu se inventó para que el chico le ganara al grandote. La palanca, el ángulo correcto, el peso bien apoyado — eso vence a la fuerza bruta. Aquí no necesitas ser el más fuerte, necesitas ser el más preciso. El cuerpo se reeduca para usar mecánica, no músculo.',
     imagenIzquierda: false,
   },
   {
     label: '03 / Ajedrez humano',
     titulo: 'Paciencia y Lectura',
-    texto: 'El jiu jitsu es un ajedrez con cuerpos. Cada movimiento abre y cierra puertas, cada agarre obliga al otro a responder. Acá aprendés a esperar — la prisa pierde. Vas leyendo, sintiendo, ajustando. Cuando llega la sumisión, ya estaba decidida tres movimientos antes.',
+    texto: 'El jiu jitsu es un ajedrez con cuerpos. Cada movimiento abre y cierra puertas, cada agarre obliga al otro a responder. Aquí aprendes a esperar — la prisa pierde. Vas leyendo, sintiendo, ajustando. Cuando llega la sumisión, ya estaba decidida tres movimientos antes.',
     imagenIzquierda: true,
   },
 ];

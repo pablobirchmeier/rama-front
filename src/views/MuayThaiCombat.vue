@@ -86,19 +86,19 @@ const secciones = [
   {
     label: '01 / El Ring',
     titulo: 'Entrar al Cuadrado',
-    texto: 'El ring no perdona. No hay esquinas para esconderse, no hay tiempo para pensar dos veces. Acá no se entrena para verse — se entrena para resistir. Cada round es una pregunta directa: ¿qué tan parado podés quedarte cuando el otro también vino a quedarse parado?',
+    texto: 'El ring no perdona. No hay esquinas para esconderse, no hay tiempo para pensar dos veces. Aquí no se entrena para verse — se entrena para resistir. Cada round es una pregunta directa: ¿qué tan parado puedes quedarte cuando el otro también vino a quedarse parado?',
     imagenIzquierda: true,
   },
   {
     label: '02 / Lectura',
     titulo: 'Ver Antes de Pegar',
-    texto: 'Ningún golpe llega por casualidad. Hay una respiración antes, un peso que se carga, un hombro que avisa. Acá entrenás a leer eso — fintas, ritmos, telegrafías. La diferencia entre comer la patada y verla venir está en milésimas de segundo, y se entrena.',
+    texto: 'Ningún golpe llega por casualidad. Hay una respiración antes, un peso que se carga, un hombro que avisa. Aquí entrenas a leer eso — fintas, ritmos, telegrafías. La diferencia entre comer la patada y verla venir está en milésimas de segundo, y se entrena.',
     imagenIzquierda: false,
   },
   {
     label: '03 / Mental',
     titulo: 'Gestión del Miedo',
-    texto: 'El miedo no se vence afuera, se vence dentro. Acá no negamos que da nervios — lo usamos. Aprendés a respirar cuando el corazón se acelera, a soltar cuando el cuerpo se tranca, a volver al plan cuando todo se sale del libreto. Eso es Combat: cabeza fría, cuerpo despierto.',
+    texto: 'El miedo no se vence afuera, se vence dentro. Aquí no negamos que da nervios — lo usamos. Aprendes a respirar cuando el corazón se acelera, a soltar cuando el cuerpo se tranca, a volver al plan cuando todo se sale del libreto. Eso es Combat: cabeza fría, cuerpo despierto.',
     imagenIzquierda: true,
   },
 ];

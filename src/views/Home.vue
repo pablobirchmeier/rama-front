@@ -117,7 +117,7 @@
             De principiante a <span class="text-primary">guerrero</span>.
           </h2>
           <p class="max-w-2xl text-white/60 text-base md:text-lg font-light leading-relaxed">
-            Cada alumno tiene un camino. El nuestro es claro: empezás por la base, te ganás la confianza, y entrás al ring cuando estés listo.
+            Cada alumno tiene un camino. El nuestro es claro: empiezas por la base, te ganas la confianza, y entras al ring cuando estés listo.
           </p>
         </div>
 
@@ -159,7 +159,7 @@
               <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight mt-3">Nuestras Clases</h2>
             </div>
             <p class="max-w-md text-white/55 text-base font-light leading-relaxed">
-              Seis disciplinas, un mismo respeto al arte. Elegí tu camino o probalas todas con el plan ilimitado.
+              Seis disciplinas, un mismo respeto al arte. Elige tu camino o pruébalas todas con el plan ilimitado.
             </p>
           </div>
 
@@ -227,7 +227,7 @@
             No importa por dónde<br /><span class="text-primary">empieces</span>.
           </h2>
           <p class="text-white/65 text-base md:text-lg font-light leading-relaxed max-w-2xl">
-            Hayas tirado un golpe antes o no, hayas entrenado o no — el primer paso es el mismo. Una clase de prueba gratis, sin compromiso. Vení a ver de qué se trata.
+            Hayas tirado un golpe antes o no, hayas entrenado o no — el primer paso es el mismo. Una clase de prueba gratis, sin compromiso. Ven a ver de qué se trata.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 mt-4">
             <button
@@ -261,21 +261,21 @@ const camino = [
   {
     label: 'Inicial',
     nombre: 'Formativo',
-    texto: 'Sin experiencia previa. Acá aprendés la guardia, los ocho golpes sagrados y la disciplina del salón. El primer paso para todos.',
+    texto: 'Sin experiencia previa. Aquí aprendes la guardia, los ocho golpes sagrados y la disciplina del salón. El primer paso para todos.',
     imagen: '/foto_ejemplo.JPG',
     to: '/clases/muay-thai-formativo',
   },
   {
     label: 'Intermedio',
     nombre: 'Amateur',
-    texto: 'Ya tenés base. Acá encadenás combinaciones, trabajás clinch y dás tu primer paso al sparring controlado.',
+    texto: 'Ya tienes base. Aquí encadenas combinaciones, trabajas clinch y das tu primer paso al sparring controlado.',
     imagen: '/foto1.JPG',
     to: '/clases/muay-thai-amateur',
   },
   {
     label: 'Avanzado',
     nombre: 'Combat',
-    texto: 'Entrás al ring. Sparring real, lectura del rival, gestión del miedo. El nivel donde se entrena para competir.',
+    texto: 'Entras al ring. Sparring real, lectura del rival, gestión del miedo. El nivel donde se entrena para competir.',
     imagen: '/2home.JPG',
     to: '/clases/muay-thai-combat',
   },
@@ -300,7 +300,7 @@ const testimonios = [
     tag: 'Alumno · 8 meses',
   },
   {
-    texto: 'Lo que más me sorprendió no fue la técnica, fue el respeto. Acá te enseñan que el Muay Thai empieza en cómo entrás al salón.',
+    texto: 'Lo que más me sorprendió no fue la técnica, fue el respeto. Aquí te enseñan que el Muay Thai empieza en cómo entras al salón.',
     nombre: 'Macarena L.',
     inicial: 'M',
     tag: 'Alumna · 1 año',

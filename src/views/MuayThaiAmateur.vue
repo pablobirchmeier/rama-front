@@ -142,19 +142,19 @@ const secciones = [
   {
     label: '01 / Encadenamiento',
     titulo: 'Combinaciones que Fluyen',
-    texto: 'Acá dejas de tirar golpes sueltos y empezás a leer secuencias. Un jab abre el codo, el codo abre la rodilla, la rodilla abre la patada. Tres, cuatro, cinco movimientos hilados que el cuerpo arma sin pedir permiso. La técnica deja de pensarse y empieza a salir.',
+    texto: 'Aquí dejas de tirar golpes sueltos y empiezas a leer secuencias. Un jab abre el codo, el codo abre la rodilla, la rodilla abre la patada. Tres, cuatro, cinco movimientos hilados que el cuerpo arma sin pedir permiso. La técnica deja de pensarse y empieza a salir.',
     imagenIzquierda: true,
   },
   {
     label: '02 / Distancia corta',
     titulo: 'Clinch y Rodillas',
-    texto: 'El Muay Thai vive en el cuerpo a cuerpo. Cuello, agarres, control de postura, pasajes y rodillazos cortos. Acá aprendés a trabajar pegado al rival sin perder estructura — el espacio donde los principiantes se quedan sin aire y los amateurs se vuelven peligrosos.',
+    texto: 'El Muay Thai vive en el cuerpo a cuerpo. Cuello, agarres, control de postura, pasajes y rodillazos cortos. Aquí aprendes a trabajar pegado al rival sin perder estructura — el espacio donde los principiantes se quedan sin aire y los amateurs se vuelven peligrosos.',
     imagenIzquierda: false,
   },
   {
     label: '03 / Primer contacto',
     titulo: 'Sparring Controlado',
-    texto: 'Antes del Combat, hay que tocar y dejarse tocar. El sparring acá es al 20%: sin pegar a matar, pero con la presión real de un compañero que responde. Es donde aprendés a respirar bajo presión, leer fintas y descubrir qué de tu técnica funciona cuando hay alguien al otro lado.',
+    texto: 'Antes del Combat, hay que tocar y dejarse tocar. El sparring aquí es al 20%: sin pegar a matar, pero con la presión real de un compañero que responde. Es donde aprendes a respirar bajo presión, leer fintas y descubrir qué de tu técnica funciona cuando hay alguien al otro lado.',
     imagenIzquierda: true,
   },
 ];

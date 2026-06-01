@@ -126,13 +126,13 @@ const secciones = [
   {
     label: '02 / Fuerza explosiva',
     titulo: 'Kettlebell y Peso Corporal',
-    texto: 'Empujones, tirones, sentadillas, swings. Movimientos compuestos que reclutan todo el cuerpo a la vez — porque ningún golpe nace solo del brazo. Acá construís la fuerza que sostiene la técnica: piernas para cargar peso, core para transmitirlo, hombros para soltarlo.',
+    texto: 'Empujones, tirones, sentadillas, swings. Movimientos compuestos que reclutan todo el cuerpo a la vez — porque ningún golpe nace solo del brazo. Aquí construyes la fuerza que sostiene la técnica: piernas para cargar peso, core para transmitirlo, hombros para soltarlo.',
     imagenIzquierda: false,
   },
   {
     label: '03 / Capacidad metabólica',
     titulo: 'El Motor del Round',
-    texto: 'Saco, cuerda, intervalos cortos al máximo. Acá entrenás la capacidad de seguir trabajando cuando los pulmones piden parar. Un round son tres minutos eternos — y este bloque te enseña a que el minuto tres se sienta igual de fuerte que el primero.',
+    texto: 'Saco, cuerda, intervalos cortos al máximo. Aquí entrenas la capacidad de seguir trabajando cuando los pulmones piden parar. Un round son tres minutos eternos — y este bloque te enseña a que el minuto tres se sienta igual de fuerte que el primero.',
     imagenIzquierda: true,
   },
 ];
