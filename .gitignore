@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Backup local de media (pre-optimización) — NO subir al repo
+_media-backup/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

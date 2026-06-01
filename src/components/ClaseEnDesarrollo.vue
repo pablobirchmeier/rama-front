@@ -33,11 +33,13 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
-import { useRoute } from 'vue-router';
-import Navbar from './Navbar.vue';
-import Footer from './Footer.vue';
+import Navbar from '../layouts/Navbar.vue';
+import Footer from '../layouts/Footer.vue';
 
-const route = useRoute();
-const nombre = computed(() => route.meta?.nombre ?? 'Clase');
+defineProps({
+  nombre: {
+    type: String,
+    default: 'Clase',
+  },
+});
 </script>

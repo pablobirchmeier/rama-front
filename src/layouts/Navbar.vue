@@ -1,5 +1,5 @@
 <template>
-  <header class="flex items-center justify-between border-b border-solid border-white/10 px-6 md:px-10 py-4 sticky top-0 bg-black/90 backdrop-blur-md z-50">
+  <header class="flex items-center justify-between px-6 md:px-10 py-4 sticky top-0 bg-black/90 backdrop-blur-md z-50">
     <router-link to="/" class="flex items-center">
       <img src="/logo_letra_negra.png" alt="Rama Muay Thai" class="h-8 md:h-10 w-auto" />
     </router-link>
@@ -114,7 +114,9 @@ const isClasesMobileOpen = ref(false);
 
 const clases = [
   { nombre: 'Muay Thai Formativo', to: '/clases/muay-thai-formativo' },
+  { nombre: 'Muay Thai Amateur', to: '/clases/muay-thai-amateur' },
   { nombre: 'Muay Thai Combat', to: '/clases/muay-thai-combat' },
+  { nombre: 'Muay Thai Women', to: '/clases/muay-thai-women' },
   { nombre: 'Brazilian JiuJitsu', to: '/clases/brazilian-jiujitsu' },
   { nombre: 'Cross Training', to: '/clases/cross-training' },
   { nombre: 'Pad Holder', to: '/clases/pad-holder' },

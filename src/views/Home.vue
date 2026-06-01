@@ -8,7 +8,7 @@
           <video
             class="w-full h-full object-cover"
             poster="/inicio.jpg"
-            src="/Sparring%20Profe%20Ramiro%20vs%20Omar.mp4"
+            src="/sparring/Sparring%20Profe%20Ramiro%20vs%20Omar.mp4"
             autoplay
             muted
             loop
@@ -95,18 +95,14 @@
             </div>
           </div>
           <div class="md:col-span-7 relative">
-            <div class="grid grid-cols-2 gap-6">
-              <div class="pt-16">
-                <div class="relative group">
-                  <div class="absolute -inset-1 bg-gradient-to-r from-accent to-primary rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                  <img class="relative rounded-2xl shadow-2xl border-2 border-accent/20 object-cover w-full h-[450px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcswUpIFeVCSSQ52DXAQlLqr5GOn0QTLkscaDx_uRu2g6aaVHzGgD2h7wMr6n3Evljj38PVt_eSsZ9X2I-1KaDyG58EipwfgP2AUWjUecClbyQJomhZmyY1KSl5rVMHCuhIQWrrtzu5YR0Kf47ALWIsJhbQGxAnAZF0z2cLsnpZxRBaD8SNgZHz3EBEdNalRT2Rpi6jqtdge-03eigxOp8zJj1DrY8V6_nCUfeXwzP7K6TUCbpumfZRhVZzfFiXnTEObIZcsP70rA" alt="Training at Rama Muay Thai"/>
-                </div>
+            <div class="flex flex-col gap-6">
+              <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-accent to-primary rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                <img class="relative rounded-2xl shadow-2xl border-2 border-accent/20 object-cover w-full aspect-3/2" src="/1home.JPG" alt="Training at Rama Muay Thai"/>
               </div>
-              <div>
-                <div class="relative group">
-                  <div class="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                  <img class="relative rounded-2xl shadow-2xl border-2 border-accent/20 object-cover w-full h-[450px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAme3VDdW6hIoc0TZMRPSQiW1zErRL8rzw1aS1UdW2tEDM6HAq2p43mvSiIN2NM-9ttlG-_gxsMtBGhVqG9O_P4aE6-ObutJDQQdGitKZJBUfpQVXDuY8XaUxy1h7GqBNZWjeFFFXHASUkWXqVtnjx30VLPGwS_DbwTxuIh8NcW-fkRtPtG-hKLMg2dvcYgNV2GOWQ9npBR5E8NBBrp8oNEFmtXoNVhSmwotMWRV5r8VMbjRSqL3nRa96z6ctSYGcuyrwFWW2kn2zA" alt="Rama Muay Thai Gear"/>
-                </div>
+              <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                <img class="relative rounded-2xl shadow-2xl border-2 border-accent/20 object-cover w-full aspect-3/2" src="/2home.JPG" alt="Rama Muay Thai Gear"/>
               </div>
             </div>
           </div>
@@ -118,8 +114,8 @@
 </template>
 
 <script setup>
-import Navbar from './Navbar.vue';
-import Footer from './Footer.vue';
+import Navbar from '../layouts/Navbar.vue';
+import Footer from '../layouts/Footer.vue';
 </script>
 
 <style scoped>
