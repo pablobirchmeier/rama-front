@@ -7,56 +7,8 @@
       <Navbar />
 
       <main class="relative z-10 flex flex-col items-center">
-        <!-- Profesores Section -->
-        <section class="w-full py-16 px-6 md:px-20 lg:px-40">
-          <div class="flex flex-col gap-4 mb-10">
-            <div class="flex items-center gap-2 text-primary font-bold tracking-[0.2em] uppercase text-xs">
-              <span class="material-symbols-outlined text-sm">sports_martial_arts</span>
-              Nuestros Profesores
-            </div>
-            <h2 class="text-3xl md:text-5xl font-black uppercase italic tracking-tight leading-none">
-              HONOR Y <span class="text-primary italic">LIDERAZGO</span>
-            </h2>
-            <p class="max-w-2xl text-white/40 text-sm md:text-base leading-relaxed uppercase tracking-wider">
-              Entrena con nuestro equipo. Profesores que llevarán tu técnica al siguiente nivel con disciplina y respeto.
-            </p>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-5xl">
-            <div
-              v-for="profe in profesores"
-              :key="profe.nombre"
-              class="flex flex-col gap-5 group"
-            >
-              <div
-                class="relative w-full aspect-[3/4] rounded-xl overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-[1.03] border-b-4 border-primary"
-              >
-                <img
-                  :src="profe.foto"
-                  :alt="profe.nombre"
-                  class="absolute inset-0 w-full h-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80"></div>
-                <div class="absolute bottom-4 left-4">
-                  <span class="bg-primary text-black px-3 py-1 text-[10px] font-black uppercase rounded-sm tracking-widest shadow-lg">{{ profe.disciplina }}</span>
-                </div>
-              </div>
-              <div class="px-1">
-                <p class="text-primary text-2xl font-black uppercase italic tracking-tighter">{{ profe.nombre }}</p>
-                <div class="flex items-center gap-2 mt-1">
-                  <span class="text-primary material-symbols-outlined text-sm">military_tech</span>
-                  <p class="text-white/60 text-xs font-bold uppercase tracking-widest leading-none mt-1">Profesor</p>
-                </div>
-                <p class="text-white/40 text-[10px] mt-2 uppercase font-black tracking-widest">{{ profe.rol }}</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <!-- Header for Schedule Section -->
-        <div class="flex flex-col items-center gap-4 mt-8 mb-16">
+        <div class="flex flex-col items-center gap-4 mt-16 mb-16">
           <div class="flex items-center gap-4">
             <div class="size-12 text-primary">
               <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
@@ -149,6 +101,54 @@
             </div>
           </div>
         </div>
+
+        <!-- Profesores Section -->
+        <section class="w-full py-16 px-6 md:px-20 lg:px-40">
+          <div class="flex flex-col gap-4 mb-10">
+            <div class="flex items-center gap-2 text-primary font-bold tracking-[0.2em] uppercase text-xs">
+              <span class="material-symbols-outlined text-sm">sports_martial_arts</span>
+              Nuestros Profesores
+            </div>
+            <h2 class="text-3xl md:text-5xl font-black uppercase italic tracking-tight leading-none">
+              HONOR Y <span class="text-primary italic">LIDERAZGO</span>
+            </h2>
+            <p class="max-w-2xl text-white/40 text-sm md:text-base leading-relaxed uppercase tracking-wider">
+              Entrena con nuestro equipo. Profesores que llevarán tu técnica al siguiente nivel con disciplina y respeto.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-5xl">
+            <div
+              v-for="profe in profesores"
+              :key="profe.nombre"
+              class="flex flex-col gap-5 group"
+            >
+              <div
+                class="relative w-full aspect-3/4 rounded-xl overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-[1.03] border-b-4 border-primary"
+              >
+                <img
+                  :src="profe.foto"
+                  :alt="profe.nombre"
+                  class="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent opacity-80"></div>
+                <div class="absolute bottom-4 left-4">
+                  <span class="bg-primary text-black px-3 py-1 text-[10px] font-black uppercase rounded-sm tracking-widest shadow-lg">{{ profe.disciplina }}</span>
+                </div>
+              </div>
+              <div class="px-1">
+                <p class="text-primary text-2xl font-black uppercase italic tracking-tighter">{{ profe.nombre }}</p>
+                <div class="flex items-center gap-2 mt-1">
+                  <span class="text-primary material-symbols-outlined text-sm">military_tech</span>
+                  <p class="text-white/60 text-xs font-bold uppercase tracking-widest leading-none mt-1">Profesor</p>
+                </div>
+                <p class="text-white/40 text-[10px] mt-2 uppercase font-black tracking-widest">{{ profe.rol }}</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <!-- CTA Section: Clase Gratis -->
         <div class="mt-20 flex flex-col md:flex-row items-center justify-center gap-8 text-center bg-white/5 p-10 md:p-12 rounded-3xl border border-white/5 backdrop-blur-sm mx-4 md:mx-0 w-full max-w-[1100px]">
