@@ -41,13 +41,13 @@
             Agenda tu clase de prueba
             <span class="material-symbols-outlined">arrow_forward</span>
           </button>
-          <router-link
-            to="/horarios"
+          <button
+            @click="scrollTo('horarios')"
             class="mt-4 w-full sm:w-auto min-w-[300px] h-14 px-8 border-2 border-primary/50 hover:bg-primary/10 text-primary rounded-lg font-bold text-sm uppercase tracking-widest backdrop-blur-sm transition-all flex items-center justify-center gap-3"
           >
             Ver horarios
             <span class="material-symbols-outlined">calendar_month</span>
-          </router-link>
+          </button>
         </div>
       </section>
 
@@ -283,41 +283,30 @@
         </div>
       </section>
 
-      <!-- 8. HORARIOS -->
-      <section class="py-24 lg:py-28 px-6">
-        <div class="max-w-[1100px] mx-auto grid md:grid-cols-12 gap-10 items-center">
-          <div class="md:col-span-7 flex flex-col gap-5">
+      <!-- 8. HORARIOS (mismo componente que la vista /horarios) -->
+      <section id="horarios" class="scroll-mt-20 py-24 lg:py-28 px-4 sm:px-6">
+        <div class="max-w-[1100px] mx-auto flex flex-col gap-10">
+          <div class="flex flex-col items-center text-center gap-4">
             <span class="text-primary font-bold tracking-[0.4em] uppercase text-xs">Horarios</span>
             <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight leading-[0.95]">
               Entrena cuando mejor <span class="text-primary">te acomode</span>
             </h2>
-            <p class="text-white/65 text-base md:text-lg font-light leading-relaxed">
+            <p class="max-w-2xl text-white/65 text-base md:text-lg font-light leading-relaxed">
               Contamos con clases durante la mañana, mediodía y tarde para que puedas integrar el entrenamiento a tu rutina.
-            </p>
-            <p class="text-white/65 text-base md:text-lg font-light leading-relaxed">
-              Selecciona la disciplina y nivel que quieras entrenar y revisa los horarios disponibles.
-            </p>
-            <p class="text-white/45 text-sm flex items-center gap-2">
-              <span class="material-symbols-outlined text-primary text-lg">event_available</span>
-              Las clases se reservan previamente a través de nuestra plataforma.
+              Selecciona el día que quieras entrenar y revisa los horarios disponibles.
             </p>
           </div>
-          <div class="md:col-span-5 flex flex-col gap-4">
-            <div v-for="b in bloques" :key="b.nombre" class="flex items-center justify-between gap-4 p-5 rounded-xl border border-white/10 bg-white/[0.02]">
-              <div class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-primary">{{ b.icono }}</span>
-                <span class="font-black uppercase tracking-tight">{{ b.nombre }}</span>
-              </div>
-              <span class="text-white/50 text-sm font-mono">{{ b.horas }}</span>
-            </div>
-            <router-link
-              to="/horarios"
-              class="h-14 mt-2 bg-primary text-black font-black uppercase tracking-widest text-sm rounded-lg hover:brightness-110 transition-all flex items-center justify-center gap-3"
-            >
-              Ver horarios
-              <span class="material-symbols-outlined">calendar_month</span>
-            </router-link>
-          </div>
+
+          <HorarioPorDia />
+
+          <router-link
+            to="/horarios"
+            class="self-center h-12 px-8 border border-white/20 rounded-full text-white/70 hover:text-primary hover:border-primary/50 text-xs font-bold uppercase tracking-widest transition-all flex items-center gap-2"
+          >
+            <span class="material-symbols-outlined text-lg">calendar_view_week</span>
+            Ver semana completa
+            <span class="material-symbols-outlined text-lg">arrow_forward</span>
+          </router-link>
         </div>
       </section>
 
@@ -550,6 +539,7 @@
 import Navbar from '../layouts/Navbar.vue';
 import Footer from '../layouts/Footer.vue';
 import IconoWhatsApp from '../components/IconoWhatsApp.vue';
+import HorarioPorDia from '../components/HorarioPorDia.vue';
 import { openBoxMagic, openWhatsApp, MAPS_URL } from '../utils/deepLinking';
 import { profesores } from '../data/profesores';
 
@@ -614,12 +604,6 @@ const planes = [
   { icono: 'all_inclusive', nombre: 'Plan ilimitado', texto: 'Mayor libertad para combinar nuestras disciplinas y entrenamientos.' },
   { icono: 'sports_kabaddi', nombre: 'Grappling / Jiu Jitsu', texto: 'Plan específico para entrenamiento de combate en suelo.' },
   { icono: 'person', nombre: 'Entrenamientos personalizados', texto: 'Sesiones individuales adaptadas a tus objetivos.' },
-];
-
-const bloques = [
-  { icono: 'wb_twilight', nombre: 'Mañana', horas: '7:00 - 11:00' },
-  { icono: 'light_mode', nombre: 'Mediodía', horas: '11:00 - 13:00' },
-  { icono: 'dark_mode', nombre: 'Tarde', horas: '17:30 - 22:00' },
 ];
 
 const valores = ['Respeto', 'Disciplina', 'Compañerismo', 'Superación'];
