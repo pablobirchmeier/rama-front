@@ -1,18 +1,18 @@
 // Título y descripción de cada página para Google (y vista previa al compartir).
 // Lo usan: src/router.js (actualiza <title>/<meta> al navegar) y vite.config.js (genera sitemap.xml).
-// Mantener las palabras clave locales: "Muay Thai", "Ñuñoa", "Santiago", "Barrio Italia".
+// Mantener las palabras clave: "Muay Thai", "Muay Thai Chile", "Santiago", "Ñuñoa", "Barrio Italia".
 
 export const paginas = [
   {
     path: '/',
-    title: 'Rama Muay Thai | Escuela de Muay Thai en Ñuñoa, Santiago',
+    title: 'Rama Muay Thai Chile | Escuela de Muay Thai en Santiago, Ñuñoa',
     description:
-      'Escuela de Muay Thai en Barrio Italia, Ñuñoa (Santiago, Chile). Clases para todos los niveles desde 2015: Formativo, Amateur, Combat, Cross Training y Grappling. Agenda tu clase de prueba.',
+      'Muay Thai en Chile: escuela de Muay Thai en Barrio Italia, Ñuñoa (Santiago). Clases de Muay Thai para todos los niveles desde 2015: Formativo, Amateur, Combat, Cross Training y Grappling. Agenda tu clase de prueba.',
     prioridad: '1.0',
   },
   {
     path: '/horarios',
-    title: 'Horarios de clases de Muay Thai | Rama Muay Thai Ñuñoa',
+    title: 'Horarios de clases de Muay Thai | Rama Muay Thai Chile',
     description:
       'Horarios 2026 de Rama Muay Thai en Ñuñoa: clases de Muay Thai, Cross Training y Grappling de lunes a sábado, mañana, mediodía y tarde.',
     prioridad: '0.9',
@@ -26,14 +26,14 @@ export const paginas = [
   },
   {
     path: '/clases/muay-thai-formativo',
-    title: 'Muay Thai para principiantes (Formativo) | Rama Muay Thai Santiago',
+    title: 'Muay Thai para principiantes en Santiago | Rama Muay Thai Chile',
     description:
-      'Clases de Muay Thai para principiantes en Ñuñoa, Santiago. Aprende postura, golpes, defensas y combinaciones desde cero. No necesitas experiencia previa.',
+      'Clases de Muay Thai para principiantes en Ñuñoa, Santiago de Chile. Aprende postura, golpes, defensas y combinaciones desde cero. No necesitas experiencia previa.',
     prioridad: '0.8',
   },
   {
     path: '/clases/muay-thai-amateur',
-    title: 'Muay Thai Amateur | Rama Muay Thai Santiago',
+    title: 'Muay Thai Amateur | Rama Muay Thai Chile',
     description:
       'Muay Thai Amateur en Ñuñoa: entrenamientos de mayor intensidad, combinaciones avanzadas, trabajo táctico y situaciones reales de combate.',
     prioridad: '0.8',
@@ -42,14 +42,14 @@ export const paginas = [
     path: '/clases/muay-thai-combat',
     title: 'Muay Thai Combat: equipo de competencia | Rama Muay Thai',
     description:
-      'Muay Thai Combat en Santiago: preparación técnica, táctica y física orientada a la competencia. El equipo de competidores de Rama Muay Thai.',
+      'Muay Thai Combat en Santiago de Chile: preparación técnica, táctica y física orientada a la competencia. El equipo de competidores de Rama Muay Thai.',
     prioridad: '0.8',
   },
   {
     path: '/clases/muay-thai-women',
     title: 'Muay Thai para mujeres | Rama Muay Thai Ñuñoa',
     description:
-      'Clases de Muay Thai exclusivas para mujeres en Ñuñoa, Santiago. Entrena técnica y condición física en un espacio seguro y de compañerismo.',
+      'Clases de Muay Thai exclusivas para mujeres en Ñuñoa, Santiago de Chile. Entrena técnica y condición física en un espacio seguro y de compañerismo.',
     prioridad: '0.8',
   },
   {
@@ -69,7 +69,7 @@ export const paginas = [
   {
     path: '/clases/pad-holder',
     title: 'Pad Holder | Rama Muay Thai',
-    description: 'Pad Holder en Rama Muay Thai, escuela de Muay Thai en Ñuñoa, Santiago.',
+    description: 'Pad Holder en Rama Muay Thai, escuela de Muay Thai en Ñuñoa, Santiago de Chile.',
     prioridad: null, // clase en desarrollo: fuera del sitemap por ahora
   },
 ];
