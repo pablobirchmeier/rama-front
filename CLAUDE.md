@@ -1,6 +1,6 @@
 # Rama Muay Thai — Sitio web
 
-Sitio de la escuela **Rama Muay Thai** (Chile). Vue 3 + Vite + Vue Router (hash history) + Tailwind CSS v4.
+Sitio de la escuela **Rama Muay Thai** (Chile). Vue 3 + Vite + Vue Router (history mode, rutas sin `#`) + Tailwind CSS v4. Deploy en **Vercel** (`vercel.json` reescribe toda ruta a `index.html`; links viejos `/#/ruta` se convierten solos en `router.js`).
 
 - Vistas en `src/views/`, layouts (Navbar/Footer) en `src/layouts/`, rutas en `src/router.js`.
 - Tokens de color (Tailwind v4 `@theme` en `src/style.css`): `primary`/`accent` = `#FFD700` (dorado), `background-dark` = `#000000`. Fuente display: Lexend.
@@ -10,7 +10,9 @@ Sitio de la escuela **Rama Muay Thai** (Chile). Vue 3 + Vite + Vue Router (hash 
 ## Horarios oficiales 2026
 
 Fuente: flyers oficiales @ramamuaythai (HORARIO AM / HORARIO PM 2026). Mantener
-`src/views/Horarios.vue` (tablas `horarioAM`/`horarioPM`) y la barra de datos de
+`src/data/horarios.js` (tablas `horarioAM`/`horarioPM`, única fuente: las usan el
+componente `src/components/HorarioPorDia.vue` —vista por día en Home y Horarios— y las
+tablas de semana completa de `Horarios.vue`) y la barra de datos de
 `src/views/MuayThaiFormativo.vue` sincronizados con esto.
 
 ### AM (Lun a Sáb)
@@ -44,6 +46,13 @@ Fuente: flyers oficiales @ramamuaythai (HORARIO AM / HORARIO PM 2026). Mantener
 | Cross Training      | Preparación física complementaria             |
 | Grappling           | Clase de lucha con base de Jiu-Jitsu          |
 | Woman Muay Thai     | Entrenamiento exclusivo para mujeres          |
+
+## SEO
+
+- Título/descripción por página en `src/data/seo.js` (el router los aplica en `afterEach`, junto con canonical y Open Graph). Agregar ahí cada ruta nueva.
+- `index.html`: meta por defecto + Open Graph + JSON-LD `ExerciseGym` (dirección, horario, teléfono, redes). `%SITE_URL%` lo reemplaza `vite.config.js` (plugin `seo()`).
+- `SITE_URL` = `VITE_SITE_URL` si existe, si no `VERCEL_PROJECT_PRODUCTION_URL` (Vercel la da sola en el build). El plugin genera `sitemap.xml` y `robots.txt` en el build.
+- Fuera del código (lo hace el dueño): Perfil de Empresa de Google + reseñas, y Google Search Console enviando `/sitemap.xml`.
 
 ## Optimización de carga
 

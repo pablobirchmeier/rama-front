@@ -1,12 +1,78 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-CL">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/logo_letra_negra.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Rama Muay Thai — Escuela de Muay Thai en Chile. Formación, amateur, combat, women, cross training y Brazilian Jiu Jitsu." />
-    <title>Rama Muay Thai</title>
+
+    <!-- SEO. Título/descripción por página: src/data/seo.js (el router los actualiza al navegar).
+         %SITE_URL% lo reemplaza vite.config.js en el build con el dominio de producción. -->
+    <title>Rama Muay Thai | Escuela de Muay Thai en Ñuñoa, Santiago</title>
+    <meta name="description" content="Escuela de Muay Thai en Barrio Italia, Ñuñoa (Santiago, Chile). Clases para todos los niveles desde 2015: Formativo, Amateur, Combat, Cross Training y Grappling. Agenda tu clase de prueba." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="%SITE_URL%/" />
+    <meta name="geo.region" content="CL-RM" />
+    <meta name="geo.placename" content="Ñuñoa, Santiago" />
+    <meta name="geo.position" content="-33.45153;-70.62505" />
+
+    <!-- Vista previa al compartir (WhatsApp, Instagram, Facebook, X) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:site_name" content="Rama Muay Thai" />
+    <meta property="og:title" content="Rama Muay Thai | Escuela de Muay Thai en Ñuñoa, Santiago" />
+    <meta property="og:description" content="Escuela de Muay Thai en Barrio Italia, Ñuñoa (Santiago, Chile). Clases para todos los niveles desde 2015: Formativo, Amateur, Combat, Cross Training y Grappling. Agenda tu clase de prueba." />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta property="og:image" content="%SITE_URL%/inicio.jpg" />
+    <meta property="og:image:alt" content="Entrenamiento en Rama Muay Thai, Ñuñoa" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Datos estructurados: le dicen a Google que es un gimnasio de Muay Thai con esta dirección,
+         horario y contacto (ayuda a aparecer en búsquedas locales y en Maps). -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ExerciseGym",
+        "@id": "%SITE_URL%/#gimnasio",
+        "name": "Rama Muay Thai",
+        "alternateName": "Rama Muay Thai Chile",
+        "description": "Escuela de Muay Thai en Barrio Italia, Ñuñoa. Clases de Muay Thai Formativo, Amateur y Combat, Cross Training, Grappling / Jiu Jitsu y Woman Muay Thai para todos los niveles, desde 2015.",
+        "url": "%SITE_URL%/",
+        "logo": "%SITE_URL%/logo_letra_negra.png",
+        "image": "%SITE_URL%/inicio.jpg",
+        "telephone": "+56984445002",
+        "foundingDate": "2015",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Tegualda 1895",
+          "addressLocality": "Ñuñoa",
+          "addressRegion": "Región Metropolitana",
+          "postalCode": "7770355",
+          "addressCountry": "CL"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": -33.45153, "longitude": -70.62505 },
+        "areaServed": ["Ñuñoa", "Providencia", "Santiago", "Región Metropolitana"],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "07:00",
+            "closes": "22:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "10:00",
+            "closes": "13:00"
+          }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/ramamuaythaichile/",
+          "https://web.facebook.com/RamaMuayThaiCL"
+        ],
+        "keywords": "Muay Thai, Muay Thai Santiago, Muay Thai Ñuñoa, clases de Muay Thai, Thai boxing, Kickboxing, Grappling, Jiu Jitsu, Cross Training"
+      }
+    </script>
 
     <!-- Fonts: preconnect + display=swap para no bloquear el render -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

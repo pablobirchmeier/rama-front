@@ -3,12 +3,56 @@ import vue from "@vitejs/plugin-vue";
 import tailwindcss from "@tailwindcss/vite";
 import viteCompression from "vite-plugin-compression";
 import { VitePWA } from "vite-plugin-pwa";
+import { paginas } from "./src/data/seo.js";
+
+// Dominio público del sitio (para sitemap, canonical, Open Graph y datos estructurados).
+// - VITE_SITE_URL: si se define (en Vercel → Settings → Environment Variables), manda.
+// - VERCEL_PROJECT_PRODUCTION_URL: Vercel la entrega sola en cada build con el dominio de
+//   producción (el dominio propio cuando se configure, o el *.vercel.app mientras tanto).
+// - En local: localhost.
+const SITE_URL = (
+    process.env.VITE_SITE_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+        ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+        : "http://localhost:5173")
+).replace(/\/$/, "");
+
+// Reemplaza %SITE_URL% en index.html y genera sitemap.xml + robots.txt en el build
+function seo() {
+    return {
+        name: "rama-seo",
+        transformIndexHtml(html) {
+            return html.replaceAll("%SITE_URL%", SITE_URL);
+        },
+        generateBundle() {
+            const hoy = new Date().toISOString().slice(0, 10);
+            const urls = paginas
+                .filter((p) => p.prioridad)
+                .map(
+                    (p) =>
+                        `  <url><loc>${SITE_URL}${p.path}</loc><lastmod>${hoy}</lastmod><priority>${p.prioridad}</priority></url>`
+                )
+                .join("\n");
+            this.emitFile({
+                type: "asset",
+                fileName: "sitemap.xml",
+                source: `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`,
+            });
+            this.emitFile({
+                type: "asset",
+                fileName: "robots.txt",
+                source: `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`,
+            });
+        },
+    };
+}
 
 // https://vite.dev/config/
 export default defineConfig({
     plugins: [
         vue(),
         tailwindcss(),
+        seo(),
         // Pre-comprime los assets a .gz para servirlos directo (la mayoría de hosts modernos lo sirven solo)
         viteCompression({
             algorithm: "gzip",
@@ -53,6 +97,8 @@ export default defineConfig({
                 ],
             },
             workbox: {
+                // Rutas normales (sin "#"): toda navegación cae en index.html, salvo estos archivos
+                navigateFallbackDenylist: [/^\/(?:sitemap\.xml|robots\.txt)$/],
                 // Precache: JS/CSS/HTML del build (NO los videos/imágenes — esos van por runtime cache)
                 globPatterns: ["**/*.{js,css,html,svg,woff,woff2}"],
                 // Workbox por defecto saltea archivos > 2MB; lo subo a 5MB para no romper con chunks de vendor

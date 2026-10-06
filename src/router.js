@@ -1,4 +1,5 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
+import { paginas } from './data/seo';
 
 // Code splitting: cada ruta se descarga en un chunk separado bajo demanda,
 // así el bundle inicial es mucho más liviano (solo Home se carga al entrar).
@@ -23,11 +24,21 @@ const routes = [
     { path: '/clases/muay-thai-women', name: 'muay-thai-women', component: MuayThaiWomen },
     { path: '/clases/brazilian-jiujitsu', name: 'brazilian-jiujitsu', component: BrazilianJiuJitsu },
     { path: '/clases/cross-training', name: 'cross-training', component: CrossTraining },
-    { path: '/clases/pad-holder', name: 'pad-holder', component: PadHolder },
+    { path: '/clases/pad-holder', name: 'pad-holder', component: PadHolder, meta: { noindex: true } },
+    // Ruta inexistente → Inicio
+    { path: '/:pathMatch(.*)*', redirect: '/' },
 ];
 
+// Links viejos con hash (ej. sitio.cl/#/horarios, compartidos antes del cambio a rutas normales)
+// → se convierten a la ruta normal (sitio.cl/horarios) antes de que arranque el router.
+if (window.location.hash.startsWith('#/')) {
+    window.history.replaceState(null, '', window.location.hash.slice(1));
+}
+
+// Rutas normales (sin "#") para que Google indexe cada página por separado.
+// Requiere que el hosting mande toda ruta a index.html: ver vercel.json.
 const router = createRouter({
-    history: createWebHashHistory(),
+    history: createWebHistory(),
     routes,
     // Atrás/adelante del navegador: vuelve a la misma posición donde estaba el usuario.
     // Navegación nueva: arriba de todo. El pequeño delay deja que la vista (chunk lazy)
@@ -40,6 +51,25 @@ const router = createRouter({
         }
         return { top: 0 };
     },
+});
+
+// SEO: título, descripción, canonical y vista previa (Open Graph) de cada página (src/data/seo.js)
+function setMeta(selector, attr, valor) {
+    const el = document.head.querySelector(selector);
+    if (el) el.setAttribute(attr, valor);
+}
+
+router.afterEach((to) => {
+    const pagina = paginas.find((p) => p.path === to.path) || paginas[0];
+    const url = window.location.origin + to.path;
+
+    document.title = pagina.title;
+    setMeta('meta[name="description"]', 'content', pagina.description);
+    setMeta('meta[property="og:title"]', 'content', pagina.title);
+    setMeta('meta[property="og:description"]', 'content', pagina.description);
+    setMeta('meta[property="og:url"]', 'content', url);
+    setMeta('meta[name="robots"]', 'content', to.meta.noindex ? 'noindex, follow' : 'index, follow');
+    setMeta('link[rel="canonical"]', 'href', url);
 });
 
 export default router;
