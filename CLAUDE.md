@@ -5,7 +5,7 @@ Sitio de la escuela **Rama Muay Thai** (Chile). Vue 3 + Vite + Vue Router (hash 
 - Vistas en `src/views/`, layouts (Navbar/Footer) en `src/layouts/`, rutas en `src/router.js`.
 - Tokens de color (Tailwind v4 `@theme` en `src/style.css`): `primary`/`accent` = `#FFD700` (dorado), `background-dark` = `#000000`. Fuente display: Lexend.
 - Las clases "en desarrollo" usan el componente `src/components/ClaseEnDesarrollo.vue` (prop `nombre`).
-- El CTA "Unirse"/"Reservar" usa `openBoxMagic()` de `src/utils/deepLinking.js` (portal BoxMagic).
+- El CTA "Unirse"/"Reservar" usa `openBoxMagic()` de `src/utils/deepLinking.js` (portal BoxMagic). `openBoxMagic()` NO redirige directo: abre el modal explicativo `src/components/BoxMagicModal.vue` (montado en `App.vue`), y la redirección real (`irABoxMagic()`) ocurre desde su botón "Ir a BoxMagic".
 
 ## Horarios oficiales 2026
 

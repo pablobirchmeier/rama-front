@@ -14,12 +14,16 @@
           <span class="block text-transparent [-webkit-text-stroke:2px_#FFD700]">Combat.</span>
         </h1>
 
-        <!-- Descripción -->
-        <p class="mt-8 max-w-md text-slate-300 text-base lg:text-lg font-light leading-relaxed">
-          Solo para quienes ya tienen guardia. Entramos al ring.
-          Sparring controlado, lectura del rival, gestión del miedo.
-          Aquí no se entrena para verse &mdash; se entrena para resistir.
-        </p>
+        <!-- Descripción (mismo texto que la tarjeta del Inicio) -->
+        <div class="mt-8 max-w-md flex flex-col gap-2">
+          <p class="text-primary font-bold text-sm lg:text-base uppercase tracking-wider">Entrena para competir.</p>
+          <p class="text-slate-300 text-base lg:text-lg font-light leading-relaxed">
+            Preparación técnica, táctica y física orientada al rendimiento competitivo.
+          </p>
+          <p class="text-white/50 text-sm leading-relaxed">
+            Un espacio destinado a nuestros deportistas y equipo de competencia.
+          </p>
+        </div>
 
         <!-- Datos -->
         <div class="mt-10 grid grid-cols-2 max-w-md border-y border-white/15">

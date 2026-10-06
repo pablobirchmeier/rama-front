@@ -160,7 +160,7 @@
                     </div>
                     <div>
                       <p class="text-sm font-bold uppercase text-white/40 mb-1">Ponte en Contacto</p>
-                      <p class="text-white text-lg font-bold">+56 9 1234 5678</p>
+                      <p class="text-white text-lg font-bold">+56 9 8444 5002</p>
                       <p class="text-white/60">ramamuaythaiboxing@gmail.com</p>
                     </div>
                   </div>

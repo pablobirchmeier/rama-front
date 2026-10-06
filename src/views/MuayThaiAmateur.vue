@@ -44,12 +44,16 @@
               <span class="block text-primary">Amateur.</span>
             </h1>
 
-            <!-- Descripción -->
-            <p class="max-w-xl text-slate-200 text-base lg:text-lg font-light leading-relaxed drop-shadow-lg">
-              Ya tienes la base. Aquí dejas de pensar cada golpe y empiezas a
-              encadenar: combinaciones, clinch, timing y tu primer contacto
-              controlado. El paso natural antes de entrar a Combat.
-            </p>
+            <!-- Descripción (mismo texto que la tarjeta del Inicio) -->
+            <div class="max-w-xl flex flex-col gap-2 drop-shadow-lg">
+              <p class="text-primary font-bold text-sm lg:text-base uppercase tracking-wider">Lleva tu técnica al siguiente nivel.</p>
+              <p class="text-slate-200 text-base lg:text-lg font-light leading-relaxed">
+                Entrenamientos con mayor intensidad, combinaciones avanzadas, trabajo táctico y situaciones reales de combate.
+              </p>
+              <p class="text-white/60 text-sm leading-relaxed">
+                Para alumnos con experiencia que buscan continuar progresando.
+              </p>
+            </div>
 
             <!-- Progresión del gimnasio -->
             <div class="mt-2 flex flex-col gap-5">

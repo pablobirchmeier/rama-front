@@ -48,11 +48,16 @@
               <span class="block text-primary">Formativo.</span>
             </h1>
 
-            <!-- Subtítulo -->
-            <p class="mt-5 lg:mt-10 max-w-xl text-slate-200 text-sm sm:text-lg font-light leading-relaxed drop-shadow-lg">
-              El camino del guerrero empieza con la guardia. Aprenderás los ocho
-              golpes sagrados &mdash; puños, codos, rodillas y patadas. Sin atajos, sin ego.
-            </p>
+            <!-- Subtítulo (mismo texto que la tarjeta del Inicio) -->
+            <div class="mt-5 lg:mt-10 max-w-xl flex flex-col gap-2 drop-shadow-lg">
+              <p class="text-primary font-bold text-sm sm:text-base uppercase tracking-wider">Tu punto de partida.</p>
+              <p class="text-slate-200 text-sm sm:text-lg font-light leading-relaxed">
+                Aprende postura, desplazamientos, golpes, defensas y combinaciones mientras desarrollas tu condición física.
+              </p>
+              <p class="text-white/60 text-xs sm:text-sm leading-relaxed">
+                Ideal si estás comenzando o quieres construir una buena base técnica.
+              </p>
+            </div>
           </div>
         </div>
       </div>

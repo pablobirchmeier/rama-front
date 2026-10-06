@@ -170,12 +170,8 @@
 import Navbar from '../layouts/Navbar.vue';
 import Footer from '../layouts/Footer.vue';
 import { openBoxMagic } from '../utils/deepLinking';
+import { profesores } from '../data/profesores';
 
-const profesores = [
-  { nombre: 'Ramiro Leal', disciplina: 'Muay Thai', rol: 'Profesor de Muay Thai', foto: '/profesores/Ramiro%20Leal.JPG' },
-  { nombre: 'Aníbal González', disciplina: 'Muay Thai', rol: 'Profesor de Muay Thai', foto: '/profesores/Anibal%20Gonzalez%20(2).JPG' },
-  { nombre: 'Diego', disciplina: 'Jiu Jitsu', rol: 'Profesor de Jiu Jitsu', foto: '/profesores/Diego%20Jiujitsu%20(2).JPG' },
-];
 
 const diasAM = ['LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES', 'SÁBADO'];
 const diasPM = ['LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES'];

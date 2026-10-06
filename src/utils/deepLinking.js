@@ -1,3 +1,5 @@
+import { ref } from 'vue';
+
 /**
  * Utility for opening mobile applications with a fallback to web version.
  */
@@ -27,9 +29,20 @@ export const openFacebook = () => {
 };
 
 /**
+ * Todos los CTA de reserva llaman a openBoxMagic(): primero se muestra el modal
+ * explicativo (BoxMagicModal.vue, montado en App.vue) y recién desde su botón
+ * "Ir a BoxMagic" se redirige con irABoxMagic().
+ */
+export const boxMagicModalAbierto = ref(false);
+
+export const openBoxMagic = () => {
+  boxMagicModalAbierto.value = true;
+};
+
+/**
  * Opens the BoxMagic application or redirects to the student portal/app stores.
  */
-export const openBoxMagic = () => {
+export const irABoxMagic = () => {
   const webUrl = 'https://members.boxmagic.app/a/g?o=pi-e';
   
   const isAndroid = /Android/i.test(navigator.userAgent);
@@ -56,3 +69,15 @@ export const openBoxMagic = () => {
     window.open(webUrl, '_blank');
   }
 };
+
+
+/**
+ * WhatsApp de la escuela.
+ */
+export const WHATSAPP_NUMBER = '56984445002';
+
+export const openWhatsApp = (mensaje = 'Hola Rama! Quiero información para empezar a entrenar.') => {
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`, '_blank');
+};
+
+export const MAPS_URL = 'https://www.google.com/maps/search/?api=1&query=Tegualda+1895,+%C3%91u%C3%B1oa,+Santiago';

@@ -117,7 +117,7 @@ const clases = [
   { nombre: 'Muay Thai Amateur', to: '/clases/muay-thai-amateur' },
   { nombre: 'Muay Thai Combat', to: '/clases/muay-thai-combat' },
   { nombre: 'Muay Thai Women', to: '/clases/muay-thai-women' },
-  { nombre: 'Brazilian JiuJitsu', to: '/clases/brazilian-jiujitsu' },
+  { nombre: 'Grappling / Jiu Jitsu', to: '/clases/brazilian-jiujitsu' },
   { nombre: 'Cross Training', to: '/clases/cross-training' },
   { nombre: 'Pad Holder', to: '/clases/pad-holder' },
 ];
