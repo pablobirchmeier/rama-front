@@ -38,7 +38,7 @@
       <div class="px-6 pb-6">
         <button
           @click="hablar"
-          class="w-full h-14 bg-primary text-black font-black uppercase tracking-widest text-sm rounded-lg hover:brightness-110 transition-all flex items-center justify-center gap-2"
+          class="w-full h-14 bg-[#25D366] text-white font-black uppercase tracking-widest text-sm rounded-lg hover:brightness-110 transition-all flex items-center justify-center gap-2"
         >
           <IconoWhatsApp class="size-6" />
           Hablar por WhatsApp
