@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory, START_LOCATION } from 'vue-router';
 import { paginas } from './data/seo';
 import { trackMeta } from './utils/metaPixel';
 
@@ -36,16 +36,27 @@ if (window.location.hash.startsWith('#/')) {
     window.history.replaceState(null, '', window.location.hash.slice(1));
 }
 
+// Cómo se cargó la página: 'reload' (recargar), 'navigate' (link/URL nueva) o 'back_forward' (atrás/adelante).
+// Solo con atrás/adelante se restaura la posición y el estado guardado (ej. día elegido en el horario);
+// al recargar o entrar de nuevo, la página parte desde arriba y en su estado inicial.
+const tipoCarga = performance.getEntriesByType?.('navigation')[0]?.type;
+const vieneDeAtras = tipoCarga === 'back_forward';
+if (!vieneDeAtras && window.history.state) {
+    const { horarioDia, horariosSemana, ...resto } = window.history.state;
+    window.history.replaceState(resto, '');
+}
+
 // Rutas normales (sin "#") para que Google indexe cada página por separado.
 // Requiere que el hosting mande toda ruta a index.html: ver vercel.json.
 const router = createRouter({
     history: createWebHistory(),
     routes,
     // Atrás/adelante del navegador: vuelve a la misma posición donde estaba el usuario.
-    // Navegación nueva: arriba de todo. El pequeño delay deja que la vista (chunk lazy)
+    // Navegación nueva o recarga: arriba de todo. El pequeño delay deja que la vista (chunk lazy)
     // termine de pintarse antes de restaurar, para que la altura de la página ya exista.
     scrollBehavior(to, from, savedPosition) {
-        if (savedPosition) {
+        const esPrimeraCarga = from === START_LOCATION;
+        if (savedPosition && (!esPrimeraCarga || vieneDeAtras)) {
             return new Promise((resolve) => {
                 setTimeout(() => resolve({ ...savedPosition, behavior: 'instant' }), 50);
             });

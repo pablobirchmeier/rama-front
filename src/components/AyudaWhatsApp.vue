@@ -54,29 +54,13 @@ import { openWhatsApp, boxMagicModalAbierto } from '../utils/deepLinking';
 import IconoWhatsApp from './IconoWhatsApp.vue';
 
 // Aparece tras IDLE_MS SIN actividad (scroll, mouse, teclado, toques). Cualquier actividad reinicia
-// la cuenta. Una vez por visita: si lo cierran, no vuelve hasta otra sesión.
+// la cuenta. Una vez por carga de la página: al cambiar de página dentro del sitio no vuelve
+// (este componente vive en App.vue y no se reinicia), pero al recargar puede aparecer de nuevo.
 const IDLE_MS = 15 * 1000;
 const EVENTOS_ACTIVIDAD = ['scroll', 'wheel', 'mousemove', 'mousedown', 'keydown', 'touchstart', 'touchmove'];
-const STORAGE_KEY = 'rama_ayuda_whatsapp_cerrado';
 
 const visible = ref(false);
 let timer = null;
-
-function yaCerrado() {
-  try {
-    return sessionStorage.getItem(STORAGE_KEY) === '1';
-  } catch {
-    return false;
-  }
-}
-
-function marcarCerrado() {
-  try {
-    sessionStorage.setItem(STORAGE_KEY, '1');
-  } catch {
-    // sin storage: solo se oculta en esta página
-  }
-}
 
 function reiniciarEspera() {
   clearTimeout(timer);
@@ -103,7 +87,6 @@ function dejarDeEscuchar() {
 
 function cerrar() {
   visible.value = false;
-  marcarCerrado();
 }
 
 function hablar() {
@@ -112,7 +95,6 @@ function hablar() {
 }
 
 onMounted(() => {
-  if (yaCerrado()) return;
   escuchar();
   reiniciarEspera();
 });
