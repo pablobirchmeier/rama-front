@@ -29,7 +29,15 @@ const routes = [
 const router = createRouter({
     history: createWebHashHistory(),
     routes,
-    scrollBehavior() {
+    // Atrás/adelante del navegador: vuelve a la misma posición donde estaba el usuario.
+    // Navegación nueva: arriba de todo. El pequeño delay deja que la vista (chunk lazy)
+    // termine de pintarse antes de restaurar, para que la altura de la página ya exista.
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) {
+            return new Promise((resolve) => {
+                setTimeout(() => resolve({ ...savedPosition, behavior: 'instant' }), 50);
+            });
+        }
         return { top: 0 };
     },
 });
