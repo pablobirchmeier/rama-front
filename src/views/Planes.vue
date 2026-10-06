@@ -150,7 +150,8 @@
                     </div>
                     <div>
                       <p class="text-sm font-bold uppercase text-white/40 mb-1">Horarios de Entrenamiento</p>
-                      <p class="text-white">Lun - Sáb: 07:00 AM - 09:00 PM</p>
+                      <p class="text-white">Lun - Vie: 07:00 - 22:00</p>
+                      <p class="text-white">Sáb: 10:00 - 13:00</p>
                       <p class="text-white/60 text-sm italic">Cerrado Domingos y Feriados</p>
                     </div>
                   </div>

@@ -480,9 +480,9 @@
               </a>
               <button
                 @click="openWhatsApp()"
-                class="h-14 px-7 border border-white/30 text-white font-bold uppercase tracking-widest text-xs rounded-lg hover:border-primary hover:text-primary transition-all flex items-center justify-center gap-2"
+                class="h-14 px-7 bg-[#25D366] text-white font-bold uppercase tracking-widest text-xs rounded-lg hover:brightness-110 transition-all flex items-center justify-center gap-2"
               >
-                <span class="material-symbols-outlined text-lg">chat</span>
+                <IconoWhatsApp class="size-5" />
                 Contactar por WhatsApp
               </button>
             </div>

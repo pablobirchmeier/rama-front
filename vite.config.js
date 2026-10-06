@@ -22,7 +22,17 @@ function seo() {
     return {
         name: "rama-seo",
         transformIndexHtml(html) {
-            return html.replaceAll("%SITE_URL%", SITE_URL);
+            let out = html.replaceAll("%SITE_URL%", SITE_URL);
+            // Verificación de dominio en Meta Business (si se configura VITE_META_DOMAIN_VERIFICATION)
+            const metaVerif = process.env.VITE_META_DOMAIN_VERIFICATION;
+            if (metaVerif) {
+                out = out.replace(
+                    "</head>",
+                    `    <meta name="facebook-domain-verification" content="${metaVerif}" />
+  </head>`
+                );
+            }
+            return out;
         },
         generateBundle() {
             const hoy = new Date().toISOString().slice(0, 10);

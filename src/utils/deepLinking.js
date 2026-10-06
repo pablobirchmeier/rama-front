@@ -1,4 +1,5 @@
 import { ref } from 'vue';
+import { trackMeta } from './metaPixel';
 
 /**
  * Utility for opening mobile applications with a fallback to web version.
@@ -43,6 +44,7 @@ export const openBoxMagic = () => {
  * Opens the BoxMagic application or redirects to the student portal/app stores.
  */
 export const irABoxMagic = () => {
+  trackMeta('Schedule');
   const webUrl = 'https://members.boxmagic.app/a/g?o=pi-e';
   
   const isAndroid = /Android/i.test(navigator.userAgent);
@@ -77,6 +79,7 @@ export const irABoxMagic = () => {
 export const WHATSAPP_NUMBER = '56984445002';
 
 export const openWhatsApp = (mensaje = 'Hola Rama! Quiero información para empezar a entrenar.') => {
+  trackMeta('Contact');
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`, '_blank');
 };
 

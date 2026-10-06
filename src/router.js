@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import { paginas } from './data/seo';
+import { trackMeta } from './utils/metaPixel';
 
 // Code splitting: cada ruta se descarga en un chunk separado bajo demanda,
 // así el bundle inicial es mucho más liviano (solo Home se carga al entrar).
@@ -70,6 +71,12 @@ router.afterEach((to) => {
     setMeta('meta[property="og:url"]', 'content', url);
     setMeta('meta[name="robots"]', 'content', to.meta.noindex ? 'noindex, follow' : 'index, follow');
     setMeta('link[rel="canonical"]', 'href', url);
+
+    // Píxel de Meta (no hace nada si no hay ID configurado)
+    trackMeta('PageView');
+    if (to.path.startsWith('/clases/') || to.path === '/planes') {
+        trackMeta('ViewContent', { content_name: pagina.title, content_category: to.path === '/planes' ? 'Planes' : 'Clase' });
+    }
 });
 
 export default router;

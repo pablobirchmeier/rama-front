@@ -26,12 +26,8 @@
         </div>
 
         <!-- Datos -->
-        <div class="mt-10 grid grid-cols-2 max-w-md border-y border-white/15">
-          <div class="py-5 pr-6 border-r border-white/15">
-            <span class="font-mono text-[10px] tracking-[0.3em] uppercase text-accent">Requiere</span>
-            <p class="mt-1 font-bold text-lg uppercase tracking-tight text-white">6 - 12 meses base</p>
-          </div>
-          <div class="py-5 pl-6">
+        <div class="mt-10 max-w-md border-y border-white/15">
+          <div class="py-5">
             <span class="font-mono text-[10px] tracking-[0.3em] uppercase text-accent">Intensidad</span>
             <p class="mt-1 font-bold text-lg uppercase tracking-tight text-white">Alta</p>
           </div>

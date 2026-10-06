@@ -113,13 +113,15 @@
       <!-- Barra inferior amarilla -->
       <div class="relative bg-primary text-black">
         <div class="max-w-[1500px] mx-auto flex flex-col sm:flex-row items-stretch">
-          <div class="flex-1 px-6 sm:px-10 lg:px-16 py-5 lg:py-6 flex flex-col gap-1 sm:border-r border-black/20">
-            <span class="font-mono text-[10px] tracking-[0.35em] uppercase text-black/70">Requisito</span>
-            <span class="font-bold text-base lg:text-lg uppercase tracking-tight">3 meses de Formativo</span>
-          </div>
-          <div class="flex-1 px-6 sm:px-10 lg:px-16 py-5 lg:py-6 flex flex-col gap-1 sm:border-r border-black/20 border-t sm:border-t-0">
-            <span class="font-mono text-[10px] tracking-[0.35em] uppercase text-black/70">Horarios</span>
-            <span class="font-bold text-base lg:text-lg uppercase tracking-tight">Mar · Jue 19:30 &middot; Sáb 12:00</span>
+          <!-- Horarios de Amateur: se arman desde src/data/horarios.js (horario oficial) -->
+          <div
+            v-for="(grupo, i) in horariosAmateur"
+            :key="grupo.dias"
+            class="flex-1 px-6 sm:px-10 lg:px-12 py-5 lg:py-6 flex flex-col gap-1 sm:border-r border-black/20"
+            :class="{ 'border-t sm:border-t-0': i > 0 }"
+          >
+            <span class="font-mono text-[10px] tracking-[0.35em] uppercase text-black/70">{{ grupo.dias }}</span>
+            <span class="font-bold text-base lg:text-lg uppercase tracking-tight">{{ grupo.horas }}</span>
           </div>
           <router-link
             to="/clases/muay-thai-combat"
@@ -141,6 +143,24 @@ import { ref } from 'vue';
 import Navbar from '../layouts/Navbar.vue';
 import Footer from '../layouts/Footer.vue';
 import SeccionesReveal from '../components/SeccionesReveal.vue';
+import { horarioAM, horarioPM } from '../data/horarios';
+
+// Agrupa los días que tienen las mismas horas de Muay Thai Amateur según el horario oficial.
+// Resultado: [{ dias: 'Lun · Mié · Vie', horas: '18:30' }, { dias: 'Mar · Jue', horas: '11:00 · 12:00 · …' }, …]
+const diasCortos = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+const horariosAmateur = (() => {
+  const grupos = new Map();
+  diasCortos.forEach((dia, i) => {
+    const horas = [...horarioAM, ...horarioPM]
+      .filter((fila) => [fila.clases[i]].flat().includes('Muay Thai Amateur'))
+      .map((fila) => fila.hora.split(' - ')[0])
+      .join(' · ');
+    if (!horas) return;
+    if (!grupos.has(horas)) grupos.set(horas, []);
+    grupos.get(horas).push(dia);
+  });
+  return [...grupos].map(([horas, dias]) => ({ dias: dias.join(' · '), horas }));
+})();
 
 const secciones = [
   {
@@ -158,7 +178,7 @@ const secciones = [
   {
     label: '03 / Primer contacto',
     titulo: 'Sparring Controlado',
-    texto: 'Antes del Combat, hay que tocar y dejarse tocar. El sparring aquí es al 20%: sin pegar a matar, pero con la presión real de un compañero que responde. Es donde aprendes a respirar bajo presión, leer fintas y descubrir qué de tu técnica funciona cuando hay alguien al otro lado.',
+    texto: 'Antes del Combat, hay que tocar y dejarse tocar. El sparring aquí es controlado: sin pegar a matar, pero con la presión real de un compañero que responde. Es donde aprendes a respirar bajo presión, leer fintas y descubrir qué de tu técnica funciona cuando hay alguien al otro lado.',
     imagenIzquierda: true,
   },
 ];
@@ -177,6 +197,6 @@ const dominaras = [
   { titulo: 'Combinaciones Encadenadas', desc: 'De golpes sueltos a series fluidas de 3-4 técnicas.' },
   { titulo: 'Clinch y Rodillazos', desc: 'Control del agarre, pasaje de cuello y trabajo de rodilla.' },
   { titulo: 'Timing y Lectura', desc: 'Contras, fintas y distancia ante un compañero que responde.' },
-  { titulo: 'Sparring Ligero', desc: 'Primer contacto controlado, sin presión, al 40%.' },
+  { titulo: 'Sparring Ligero', desc: 'Primer contacto controlado, sin presión.' },
 ];
 </script>

@@ -54,6 +54,14 @@ tablas de semana completa de `Horarios.vue`) y la barra de datos de
 - `SITE_URL` = `VITE_SITE_URL` si existe, si no `VERCEL_PROJECT_PRODUCTION_URL` (Vercel la da sola en el build). El plugin genera `sitemap.xml` y `robots.txt` en el build.
 - Fuera del código (lo hace el dueño): Perfil de Empresa de Google + reseñas, y Google Search Console enviando `/sitemap.xml`.
 
+## Publicidad (Píxel de Meta)
+
+- `src/utils/metaPixel.js`: se activa solo si existe `VITE_META_PIXEL_ID` (Vercel → Environment Variables + redeploy). Sin ID no carga nada.
+- Eventos: `PageView` + `ViewContent` (clases/planes) en `router.afterEach`; `Schedule` en `irABoxMagic()`; `Contact` en `openWhatsApp()`.
+- Verificación de dominio de Meta: `VITE_META_DOMAIN_VERIFICATION` → el plugin `seo()` de `vite.config.js` inyecta la meta tag.
+- Aviso de cookies: pendiente (decisión del dueño). Cuando exista: `REQUIERE_CONSENTIMIENTO = true` y llamar `setMetaConsent()`.
+- Variables documentadas en `.env.example`.
+
 ## Optimización de carga
 
 Aplicado (código):
