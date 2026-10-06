@@ -50,11 +50,13 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
-import { openWhatsApp } from '../utils/deepLinking';
+import { openWhatsApp, boxMagicModalAbierto } from '../utils/deepLinking';
 import IconoWhatsApp from './IconoWhatsApp.vue';
 
-// Aparece tras DELAY_MS de navegación (una vez por visita: si lo cierran, no vuelve hasta otra sesión)
-const DELAY_MS = 20 * 1000;
+// Aparece tras IDLE_MS SIN actividad (scroll, mouse, teclado, toques). Cualquier actividad reinicia
+// la cuenta. Una vez por visita: si lo cierran, no vuelve hasta otra sesión.
+const IDLE_MS = 15 * 1000;
+const EVENTOS_ACTIVIDAD = ['scroll', 'wheel', 'mousemove', 'mousedown', 'keydown', 'touchstart', 'touchmove'];
 const STORAGE_KEY = 'rama_ayuda_whatsapp_cerrado';
 
 const visible = ref(false);
@@ -76,6 +78,29 @@ function marcarCerrado() {
   }
 }
 
+function reiniciarEspera() {
+  clearTimeout(timer);
+  timer = setTimeout(mostrar, IDLE_MS);
+}
+
+function mostrar() {
+  // Si el modal de BoxMagic está abierto, el usuario está ocupado: volver a esperar
+  if (boxMagicModalAbierto.value) return reiniciarEspera();
+  visible.value = true;
+  dejarDeEscuchar();
+}
+
+function escuchar() {
+  EVENTOS_ACTIVIDAD.forEach((ev) => window.addEventListener(ev, reiniciarEspera, { passive: true }));
+  document.addEventListener('visibilitychange', reiniciarEspera);
+}
+
+function dejarDeEscuchar() {
+  clearTimeout(timer);
+  EVENTOS_ACTIVIDAD.forEach((ev) => window.removeEventListener(ev, reiniciarEspera));
+  document.removeEventListener('visibilitychange', reiniciarEspera);
+}
+
 function cerrar() {
   visible.value = false;
   marcarCerrado();
@@ -88,10 +113,9 @@ function hablar() {
 
 onMounted(() => {
   if (yaCerrado()) return;
-  timer = setTimeout(() => {
-    visible.value = true;
-  }, DELAY_MS);
+  escuchar();
+  reiniciarEspera();
 });
 
-onBeforeUnmount(() => clearTimeout(timer));
+onBeforeUnmount(dejarDeEscuchar);
 </script>
