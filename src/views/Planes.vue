@@ -12,21 +12,7 @@
               <h2 class="text-white text-4xl md:text-5xl font-black leading-tight tracking-tight mt-2 italic uppercase">PLANES 2026</h2>
             </div>
 
-            <!-- Matrícula (pago único) -->
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-5 rounded-2xl border border-primary/30 bg-primary/[0.06] px-6 md:px-8 py-6 mb-16 shadow-[0_0_40px_rgba(255,215,0,0.07)]">
-              <div class="flex items-center gap-4 text-center sm:text-left">
-                <div class="size-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <span class="material-symbols-outlined text-primary text-2xl">badge</span>
-                </div>
-                <div>
-                  <p class="text-white text-lg font-black uppercase italic tracking-tight">{{ matricula.name }}</p>
-                  <p class="text-white/50 text-xs uppercase tracking-wide">{{ matricula.description }}</p>
-                </div>
-              </div>
-              <span class="text-primary text-3xl md:text-4xl font-black tracking-tight">{{ matricula.price }}</span>
-            </div>
-
-            <!-- Plan categories -->
+            <!-- Planes 2026 (mismo diseño que los flyers oficiales: tarjetas amarillas, precio en píldora negra) -->
             <div class="flex flex-col gap-20">
               <div v-for="cat in categorias" :key="cat.id" class="flex flex-col gap-8">
                 <div class="flex flex-col gap-1">
@@ -38,27 +24,27 @@
                   <div
                     v-for="(plan, i) in cat.planes"
                     :key="i"
-                    class="group flex flex-col gap-5 rounded-xl border p-8 transition-all h-full"
-                    :class="cat.featured ? 'border-primary/40 bg-primary/[0.04] hover:border-primary' : 'border-white/10 bg-[#331919]/40 hover:border-primary/50'"
+                    class="flex flex-col gap-4 rounded-2xl bg-primary text-black p-7 h-full shadow-[0_0_30px_rgba(255,215,0,0.12)] transition-transform hover:-translate-y-1"
                   >
-                    <div class="flex items-center justify-between gap-2 min-h-[24px]">
-                      <span class="text-primary/80 text-[10px] font-black uppercase tracking-[0.2em]">{{ plan.periodo }}</span>
-                      <span v-if="plan.badge" class="rounded-full bg-primary/15 text-primary text-[9px] font-black uppercase tracking-widest px-2.5 py-1 whitespace-nowrap">{{ plan.badge }}</span>
+                    <div class="flex flex-col gap-3 pb-3 border-b-2 border-black">
+                      <h4 class="text-xl font-black uppercase tracking-tight leading-tight">{{ plan.name }}</h4>
                     </div>
 
-                    <h4 class="text-white text-xl font-black uppercase italic tracking-tight leading-none">{{ plan.name }}</h4>
-
-                    <div class="flex items-baseline gap-1">
-                      <span class="text-white text-4xl font-black tracking-tight">{{ plan.price }}</span>
-                      <span class="text-white/40 text-sm font-medium">/plan</span>
+                    <div v-if="plan.periodo || plan.badge" class="flex flex-wrap items-center gap-2 min-h-[28px]">
+                      <span v-if="plan.periodo" class="text-xs font-black uppercase tracking-[0.15em]">{{ plan.periodo }}</span>
+                      <span v-if="plan.badge" class="rounded-full bg-black text-primary text-[10px] font-black uppercase tracking-widest px-3 py-1">{{ plan.badge }}</span>
                     </div>
 
-                    <p class="text-white/50 text-xs leading-relaxed flex-1">{{ plan.description }}</p>
+                    <p class="text-black/75 text-sm leading-relaxed flex-1">{{ plan.description }}</p>
+
+                    <div class="flex justify-center pt-2">
+                      <span class="rounded-full bg-black text-primary text-2xl font-black tracking-tight px-7 py-2.5">{{ plan.price }}</span>
+                    </div>
 
                     <button
+                      v-if="!plan.sinBoton"
                       @click="openBoxMagic"
-                      class="w-full flex cursor-pointer items-center justify-center rounded-lg h-12 text-sm font-bold uppercase tracking-widest transition-colors mt-auto"
-                      :class="cat.featured ? 'bg-primary text-black hover:brightness-110' : 'bg-white/10 text-white hover:bg-white/20'"
+                      class="w-full flex cursor-pointer items-center justify-center rounded-lg h-11 text-xs font-black uppercase tracking-widest border-2 border-black text-black hover:bg-black hover:text-primary transition-colors"
                     >
                       Empezar
                     </button>
@@ -77,15 +63,15 @@
                   <div
                     v-for="(conv, i) in convenios"
                     :key="i"
-                    class="group flex flex-col gap-5 rounded-xl border border-white/10 bg-white/[0.03] p-8 hover:border-primary/50 transition-all h-full"
+                    class="flex flex-col gap-4 rounded-2xl bg-primary text-black p-7 h-full shadow-[0_0_30px_rgba(255,215,0,0.12)]"
                   >
-                    <div class="size-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                      <span class="material-symbols-outlined text-primary text-2xl">{{ conv.icon }}</span>
+                    <div class="flex items-center gap-3 pb-3 border-b-2 border-black">
+                      <span class="material-symbols-outlined text-2xl">{{ conv.icon }}</span>
+                      <h4 class="text-lg font-black uppercase tracking-tight leading-tight">{{ conv.name }}</h4>
                     </div>
-                    <h4 class="text-white text-lg font-black uppercase italic tracking-tight leading-tight">{{ conv.name }}</h4>
-                    <p class="text-white/50 text-xs leading-relaxed flex-1">{{ conv.description }}</p>
-                    <div class="flex items-baseline gap-1 pt-2 border-t border-white/5">
-                      <span class="text-white text-3xl font-black tracking-tight">{{ conv.price }}</span>
+                    <p class="text-black/75 text-sm leading-relaxed flex-1">{{ conv.description }}</p>
+                    <div class="flex justify-center pt-2">
+                      <span class="rounded-full bg-black text-primary text-2xl font-black tracking-tight px-7 py-2.5">{{ conv.price }}</span>
                     </div>
                   </div>
                 </div>
@@ -150,7 +136,8 @@
                     </div>
                     <div>
                       <p class="text-sm font-bold uppercase text-white/40 mb-1">Horarios de Entrenamiento</p>
-                      <p class="text-white">Lun - Vie: 07:00 - 22:00</p>
+                      <p class="text-white">Lun - Jue: 07:00 - 22:00</p>
+                      <p class="text-white">Vie: 07:00 - 20:30</p>
                       <p class="text-white">Sáb: 10:00 - 13:00</p>
                       <p class="text-white/60 text-sm italic">Cerrado Domingos y Feriados</p>
                     </div>
@@ -203,14 +190,8 @@ import Navbar from '../layouts/Navbar.vue';
 import Footer from '../layouts/Footer.vue';
 import { openBoxMagic, openInstagram, openFacebook } from '../utils/deepLinking';
 
-// Matrícula (pago único)
-const matricula = {
-  name: 'Matrícula',
-  price: '$25.000',
-  description: 'Inscripción inicial · Pago único',
-};
-
-// Planes 2026 agrupados por categoría
+// Planes 2026 (fuente: flyers oficiales @ramamuaythai, nov 2026). La matrícula va como una
+// tarjeta más del Plan Básico, igual que en el flyer.
 const categorias = [
   {
     id: 'basico',
@@ -219,22 +200,22 @@ const categorias = [
     cols: 'lg:grid-cols-3',
     planes: [
       {
-        name: 'Plan 8 Clases',
-        periodo: '8 clases mensuales',
-        price: '$50.000',
-        description: 'Acceso solo a clases de Muay Thai y Cross. 8 clases con vigencia de 30 días.',
+        name: 'Matrícula',
+        price: '$25.000',
+        description: 'Inscripción inicial. Pago único.',
+        sinBoton: true,
       },
       {
         name: 'Plan Estudiante',
         periodo: '12 clases mensuales',
         price: '$48.000',
-        description: 'Acceso a clases de Muay Thai, Cross y Grappling. Presentar certificado de alumno regular (enseñanza básica, media o universitaria). 12 clases libres con vigencia de 30 días.',
+        description: 'Acceso a clases de Muay Thai y Cross. Presentar certificado de alumno regular (enseñanza básica, media o universitaria). 12 clases libres con vigencia de 30 días.',
       },
       {
-        name: 'Plan Grappling',
-        periodo: '12 clases mensuales',
+        name: 'Plan 8 Clases',
+        periodo: '8 clases mensuales',
         price: '$50.000',
-        description: 'Acceso solo a clases de Grappling / Jiu Jitsu. 12 clases con vigencia de 30 días.',
+        description: 'Acceso solo a clases de Muay Thai y Cross. 8 clases con vigencia de 30 días.',
       },
     ],
   },
@@ -258,14 +239,14 @@ const categorias = [
       },
       {
         name: 'Plan 20 Clases',
-        periodo: '20 clases libres',
+        periodo: '20 clases',
         badge: 'Trimestral',
         price: '$180.000',
         description: 'Acceso a clases de Muay Thai y Cross. 20 clases libres con vigencia de 30 días.',
       },
       {
         name: 'Plan 20 Clases',
-        periodo: '20 clases libres',
+        periodo: '20 clases',
         badge: 'Semestral',
         price: '$351.000',
         description: 'Acceso a clases de Muay Thai y Cross. 20 clases libres con vigencia de 30 días.',
@@ -273,42 +254,69 @@ const categorias = [
     ],
   },
   {
-    id: 'premium',
+    id: 'premium-ilimitado',
     eyebrow: 'Acceso total',
-    title: 'Planes Premium',
-    featured: true,
+    title: 'Planes Premium · Ilimitados',
     cols: 'lg:grid-cols-3',
     planes: [
       {
         name: 'Plan Ilimitado',
-        periodo: 'Mensual',
         price: '$75.000',
-        description: 'Acceso a clases de Muay Thai, Cross y Grappling / Jiu Jitsu sin límite de reservas, con vigencia de 30 días.',
+        description: 'Acceso a clases de Muay Thai y Cross sin límite de reservas, con vigencia de 30 días.',
       },
       {
-        name: 'Plan Ilimitado',
-        periodo: 'Sin límite de reservas',
-        badge: 'Trimestral',
+        name: 'Plan Ilimitado Trimestral',
         price: '$210.000',
-        description: 'Acceso a clases de Muay Thai, Cross y Grappling / Jiu Jitsu sin límite de reservas, con vigencia de 30 días.',
+        description: 'Acceso a clases de Muay Thai y Cross sin límite de reservas, con vigencia de 30 días.',
       },
       {
-        name: 'Plan Ilimitado',
-        periodo: 'Sin límite de reservas',
-        badge: 'Semestral',
+        name: 'Plan Ilimitado Semestral',
         price: '$405.000',
-        description: 'Acceso a clases de Muay Thai, Cross y Grappling / Jiu Jitsu sin límite de reservas, con vigencia de 30 días.',
+        description: 'Acceso a clases de Muay Thai y Cross sin límite de reservas, con vigencia de 30 días.',
+      },
+    ],
+  },
+  {
+    id: 'premium-personalizado',
+    eyebrow: 'Atención individual',
+    title: 'Planes Premium · Personalizados',
+    cols: 'lg:grid-cols-4',
+    planes: [
+      {
+        name: 'Clase Personalizada',
+        periodo: '1 clase personalizada',
+        price: '$25.000',
+        description: 'Una clase personalizada libre con vigencia de 30 días.',
+      },
+      {
+        name: 'Plan Personalizado',
+        periodo: '4 clases personalizadas',
+        price: '$85.000',
+        description: 'Acceso exclusivo para clases personalizadas, agenda libre, con vigencia de 30 días.',
+      },
+      {
+        name: 'Plan Personalizado',
+        periodo: '8 clases grupales + 4 personalizadas',
+        price: '$120.000',
+        description: 'Acceso a clases de Muay Thai y Cross más 4 clases personalizadas libres, con vigencia de 30 días.',
+      },
+      {
+        name: 'Plan Personalizado',
+        periodo: '12 clases personalizadas',
+        price: '$220.000',
+        description: 'Acceso exclusivo para clases personalizadas, agenda libre, con vigencia de 30 días.',
       },
     ],
   },
 ];
 
-// Convenios (servicios complementarios)
+// Convenios (servicios complementarios). Nutricional según flyer nov 2026;
+// masoterapia se mantiene hasta que el cliente confirme si sigue.
 const convenios = [
   {
     name: 'Evaluación Nutricional',
     icon: 'nutrition',
-    price: '$20.000',
+    price: '$25.000',
     description: 'Una evaluación nutricional con el equipo de Nutsport, con vigencia de 30 días. Cupos limitados.',
   },
   {
