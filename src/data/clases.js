@@ -6,7 +6,8 @@
 //   titulo        [línea blanca, línea amarilla]
 //   lema, texto   descripción del encabezado (Formativo/Amateur/Combat = texto del dueño, también en el Inicio)
 //   nota          línea chica opcional bajo la descripción
-//   videos        uno o varios (si son varios, se alternan)
+//   videos        uno o varios (si son varios, se alternan en un recuadro…)
+//   videosJuntos  …salvo que sea true: entonces van uno debajo del otro (Combat)
 //   claseHorario  nombre de la clase en src/data/horarios.js (para la barra de horarios)
 //   lista         bloque opcional { titulo, items: [{ titulo, desc? }] }
 //   frase         cita opcional
@@ -79,7 +80,9 @@ export const clases = {
     titulo: ['Muay Thai', 'Combat.'],
     lema: 'Entrena para combatir.',
     texto: 'Preparación técnica, física y táctica para deportistas avanzados y competidores de Rama.',
-    videos: ['/sparring/sparring2.mp4', '/sparring/Sparring%20Profe%20Ramiro%20vs%20Omar.mp4'],
+    // Los dos videos, uno debajo del otro
+    videos: ['/sparring/Sparring%20Profe%20Ramiro%20vs%20Omar.mp4', '/sparring/sparring2.mp4'],
+    videosJuntos: true,
     claseHorario: 'Muay Thai Combat',
     frase: 'El miedo no se vence afuera del ring. Se vence dentro.',
     secciones: [

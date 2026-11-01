@@ -3,12 +3,14 @@
   <div class="bg-background-dark text-white min-h-screen flex flex-col font-display">
     <Navbar />
 
-    <main class="relative flex-1 flex flex-col overflow-hidden bg-background-dark">
-      <!-- Encabezado: texto + botones a la izquierda, video vertical completo a la derecha
-           (los videos de las clases son verticales 9:16: se muestran enteros, brillo 70%, sin degradados) -->
+    <main class="relative flex-1 flex flex-col overflow-x-clip bg-background-dark">
+      <!-- Encabezado: texto a la izquierda, video(s) verticales completos a la derecha y los botones
+           ABAJO de los videos. Videos 9:16 enteros, brillo 70%, sin degradados.
+           `videosJuntos` (Combat): los videos van uno debajo del otro (se ve uno, bajas y aparece el otro)
+           y el texto queda fijo a la izquierda mientras se baja; si no, se alternan en un recuadro. -->
       <div class="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-24 pt-8 sm:pt-10 lg:pt-14 pb-16 lg:pb-20">
-        <div class="grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-16 items-center">
-          <div class="flex flex-col">
+        <div class="grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-16" :class="datos.videosJuntos ? 'items-start' : 'items-center'">
+          <div class="flex flex-col" :class="{ 'lg:sticky lg:top-28': datos.videosJuntos }">
             <div class="flex items-center gap-3 w-fit border border-accent/40 rounded-md px-5 py-3 mb-6 lg:mb-10 bg-black/40">
               <span class="size-2 rounded-full bg-accent animate-pulse"></span>
               <span class="font-mono text-[11px] sm:text-xs tracking-[0.35em] uppercase text-accent">{{ datos.etiqueta }}</span>
@@ -24,8 +26,41 @@
               <p class="text-slate-200 text-base sm:text-lg font-light leading-relaxed">{{ datos.texto }}</p>
               <p v-if="datos.nota" class="text-white/60 text-xs sm:text-sm leading-relaxed">{{ datos.nota }}</p>
             </div>
+          </div>
 
-            <div class="mt-10 flex flex-col sm:flex-row gap-4">
+          <div class="flex flex-col items-center gap-8">
+            <!-- Varios videos, uno debajo del otro -->
+            <div v-if="datos.videosJuntos" class="flex flex-col gap-8 w-full max-w-[320px] sm:max-w-[360px] lg:w-[360px] xl:w-[400px] lg:max-w-none">
+              <div v-for="video in datos.videos" :key="video" class="relative aspect-[9/16] overflow-hidden rounded-sm">
+                <video
+                  :src="video"
+                  class="video-clase w-full h-full object-cover"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                ></video>
+              </div>
+            </div>
+
+            <!-- Un recuadro (si hay más de un video, se alternan) -->
+            <div v-else class="relative w-full max-w-[320px] sm:max-w-[360px] lg:w-[360px] xl:w-[400px] lg:max-w-none aspect-[9/16] overflow-hidden rounded-sm">
+              <video
+                :key="videoActual"
+                :src="datos.videos[videoActual]"
+                class="video-clase w-full h-full object-cover"
+                autoplay
+                muted
+                :loop="datos.videos.length === 1"
+                playsinline
+                preload="metadata"
+                @ended="siguienteVideo"
+              ></video>
+            </div>
+
+            <!-- Botones, abajo de los videos -->
+            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <button
                 @click="openBoxMagic"
                 class="h-14 px-8 bg-primary text-black font-bold uppercase tracking-widest text-sm rounded-md hover:brightness-110 transition-all flex items-center justify-center"
@@ -39,20 +74,6 @@
                 Ver horarios
               </router-link>
             </div>
-          </div>
-
-          <div class="relative mx-auto w-full max-w-[320px] sm:max-w-[360px] lg:w-[360px] xl:w-[400px] lg:max-w-none aspect-[9/16] overflow-hidden rounded-sm">
-            <video
-              :key="videoActual"
-              :src="datos.videos[videoActual]"
-              class="video-clase w-full h-full object-cover"
-              autoplay
-              muted
-              :loop="datos.videos.length === 1"
-              playsinline
-              preload="metadata"
-              @ended="siguienteVideo"
-            ></video>
           </div>
         </div>
       </div>
