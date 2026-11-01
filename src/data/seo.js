@@ -7,21 +7,21 @@ export const paginas = [
     path: '/',
     title: 'Rama Muay Thai Chile | Escuela de Muay Thai en Santiago, Ñuñoa',
     description:
-      'Muay Thai en Chile: escuela de Muay Thai en Barrio Italia, Ñuñoa (Santiago). Clases de Muay Thai para todos los niveles desde 2015: Formativo, Amateur, Combat, Cross Training y Grappling. Agenda tu clase de prueba.',
+      'Muay Thai en Chile: escuela de Muay Thai en Barrio Italia, Ñuñoa (Santiago). Clases de Muay Thai para todos los niveles desde 2015: Formativo, Amateur, Combat, Woman Muay Thai y Cross Training. Agenda tu clase de prueba.',
     prioridad: '1.0',
   },
   {
     path: '/horarios',
     title: 'Horarios de clases de Muay Thai | Rama Muay Thai Chile',
     description:
-      'Horarios 2026 de Rama Muay Thai en Ñuñoa: clases de Muay Thai, Cross Training y Grappling de lunes a sábado, mañana, mediodía y tarde.',
+      'Horarios 2026 de Rama Muay Thai en Ñuñoa: clases de Muay Thai y Cross Training de lunes a sábado, mañana, mediodía y tarde.',
     prioridad: '0.9',
   },
   {
     path: '/planes',
     title: 'Planes y valores | Rama Muay Thai Ñuñoa, Santiago',
     description:
-      'Planes de Rama Muay Thai: clases grupales de Muay Thai y Cross Training, plan ilimitado, Grappling / Jiu Jitsu y entrenamientos personalizados en Ñuñoa.',
+      'Planes de Rama Muay Thai: clases grupales de Muay Thai y Cross Training, planes ilimitados y entrenamientos personalizados en Ñuñoa.',
     prioridad: '0.9',
   },
   {
@@ -51,13 +51,6 @@ export const paginas = [
     description:
       'Clases de Muay Thai exclusivas para mujeres en Ñuñoa, Santiago de Chile. Entrena técnica y condición física en un espacio seguro y de compañerismo.',
     prioridad: '0.8',
-  },
-  {
-    path: '/clases/brazilian-jiujitsu',
-    title: 'Grappling y Jiu Jitsu en Ñuñoa | Rama Muay Thai',
-    description:
-      'Clases de Grappling / Jiu Jitsu en Ñuñoa, Santiago: control, derribos, posiciones y combate en suelo con un entrenamiento técnico y progresivo.',
-    prioridad: '0.7',
   },
   {
     path: '/clases/cross-training',

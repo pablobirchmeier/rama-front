@@ -114,9 +114,9 @@
 
 <script setup>
 import { ref, computed, watch, onMounted, nextTick } from 'vue';
-import { horarioAM, horarioPM, rutasClases } from '../data/horarios';
+import { horarioAM, horarioPM, rutasClases, bloquesDelDia, diasLargos } from '../data/horarios';
 
-const dias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+const dias = diasLargos;
 
 const MOSTRAR_FILTRO = false;
 
@@ -126,7 +126,6 @@ const disciplinas = [
   { label: 'Amateur', clase: 'Muay Thai Amateur' },
   { label: 'Combat', clase: 'Muay Thai Combat' },
   { label: 'Cross Training', clase: 'Cross Training' },
-  { label: 'Grappling', clase: 'Grappling' },
   { label: 'Woman MT', clase: 'Woman Muay Thai' },
 ];
 
@@ -159,17 +158,8 @@ watch(diaActivo, (dia) => {
   }
 });
 
-function filasDe(tabla, i) {
-  return tabla
-    .map((fila) => {
-      const celda = fila.clases[i];
-      const clases = (Array.isArray(celda) ? celda : celda ? [celda] : [])
-        .filter((c) => !filtro.value || c === filtro.value);
-      const [inicio, fin] = fila.hora.split(' - ');
-      return { inicio, fin, clases };
-    })
-    .filter((f) => f.clases.length);
-}
+// Bloques del día ya unidos (ej. Combat 11:00 a 13:00), filtrados por disciplina si hay filtro
+const filasDe = (tabla, i) => bloquesDelDia(tabla, i, filtro.value);
 
 function contarClases(i) {
   return [...filasDe(horarioAM, i), ...filasDe(horarioPM, i)].reduce((n, f) => n + f.clases.length, 0);

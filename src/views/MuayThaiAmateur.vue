@@ -143,24 +143,10 @@ import { ref } from 'vue';
 import Navbar from '../layouts/Navbar.vue';
 import Footer from '../layouts/Footer.vue';
 import SeccionesReveal from '../components/SeccionesReveal.vue';
-import { horarioAM, horarioPM } from '../data/horarios';
+import { resumenHorariosClase } from '../data/horarios';
 
-// Agrupa los días que tienen las mismas horas de Muay Thai Amateur según el horario oficial.
-// Resultado: [{ dias: 'Lun · Mié · Vie', horas: '18:30' }, { dias: 'Mar · Jue', horas: '11:00 · 12:00 · …' }, …]
-const diasCortos = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
-const horariosAmateur = (() => {
-  const grupos = new Map();
-  diasCortos.forEach((dia, i) => {
-    const horas = [...horarioAM, ...horarioPM]
-      .filter((fila) => [fila.clases[i]].flat().includes('Muay Thai Amateur'))
-      .map((fila) => fila.hora.split(' - ')[0])
-      .join(' · ');
-    if (!horas) return;
-    if (!grupos.has(horas)) grupos.set(horas, []);
-    grupos.get(horas).push(dia);
-  });
-  return [...grupos].map(([horas, dias]) => ({ dias: dias.join(' · '), horas }));
-})();
+// Horarios de Amateur según el horario oficial (src/data/horarios.js)
+const horariosAmateur = resumenHorariosClase('Muay Thai Amateur');
 
 const secciones = [
   {

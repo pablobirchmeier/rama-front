@@ -17,26 +17,31 @@ tablas de semana completa de `Horarios.vue`) y la barra de datos de
 
 ### AM (Lun a Sáb)
 
-| Hora          | Lun             | Mar             | Mié             | Jue             | Vie             | Sáb                          |
-|---------------|-----------------|-----------------|-----------------|-----------------|-----------------|------------------------------|
-| 7:00 - 8:00   | MT Formativo    | MT Formativo    | MT Formativo    | MT Formativo    | MT Formativo    | —                            |
-| 8:00 - 9:00   | Cross Training  | Cross Training  | Cross Training  | Cross Training  | Cross Training  | —                            |
-| 10:00 - 11:00 | Cross Training  | Cross Training  | Cross Training  | Cross Training  | Cross Training  | MT Formativo                 |
-| 11:00 - 12:00 | MT Combat       | MT Amateur      | MT Combat       | MT Amateur      | MT Combat       | Woman Muay Thai + Cross Training |
-| 12:00 - 13:00 | MT Combat       | MT Amateur      | MT Combat       | MT Amateur      | MT Combat       | MT Amateur                   |
+| Hora          | Lun             | Mar             | Mié             | Jue             | Vie             | Sáb                              |
+|---------------|-----------------|-----------------|-----------------|-----------------|-----------------|----------------------------------|
+| 7:00 - 8:00   | MT Formativo    | MT Formativo    | MT Formativo    | MT Formativo    | MT Formativo    | —                                |
+| 8:00 - 9:00   | Cross Training  | Cross Training  | Cross Training  | Cross Training  | —               | —                                |
+| 10:00 - 11:00 | Cross Training  | Cross Training  | Cross Training  | Cross Training  | —               | MT Formativo                     |
+| 11:00 - 12:00 | MT Combat*      | MT Amateur*     | MT Combat*      | MT Amateur*     | MT Combat*      | Woman Muay Thai + Cross Training |
+| 12:00 - 13:00 | MT Combat*      | MT Amateur*     | MT Combat*      | MT Amateur*     | MT Combat*      | MT Amateur                       |
+
+\* Lun a Vie 11:00 - 13:00 es UN bloque de 2 horas. En `horarios.js` se carga en dos filas y los
+helpers (`bloquesDelDia`, `tablaConBloques`) unen solas las filas seguidas con la misma celda.
 
 ### PM (Lun a Vie)
 
-| Hora          | Lun                        | Mar                        | Mié                        | Jue                        | Vie                        |
-|---------------|----------------------------|----------------------------|----------------------------|----------------------------|----------------------------|
-| 17:30 - 18:30 | MT Formativo               | MT Amateur                 | MT Formativo               | MT Amateur                 | MT Formativo               |
-| 18:30 - 19:30 | MT Amateur + Cross Training | MT Formativo              | MT Amateur + Cross Training | MT Formativo              | MT Amateur + Cross Training |
-| 19:30 - 20:30 | MT Formativo               | MT Amateur + Cross Training | MT Formativo              | MT Amateur + Cross Training | MT Combat                  |
-| 20:30 - 22:00 | MT Combat                  | Grappling                  | MT Combat                  | Grappling                  | Grappling                  |
+| Hora          | Lun                            | Mar                            | Mié                            | Jue                            | Vie          |
+|---------------|--------------------------------|--------------------------------|--------------------------------|--------------------------------|--------------|
+| 17:30 - 18:30 | MT Formativo                   | MT Formativo                   | MT Formativo                   | MT Formativo                   | MT Formativo |
+| 18:30 - 19:30 | MT Amateur + Cross Training    | MT Amateur + Cross Training    | MT Amateur + Cross Training    | MT Amateur + Cross Training    | MT Amateur   |
+| 19:30 - 20:30 | MT Formativo + Cross Training  | MT Formativo + Cross Training  | MT Formativo + Cross Training  | MT Formativo + Cross Training  | MT Combat    |
+| 20:30 - 22:00 | MT Combat                      | MT Amateur                     | MT Combat                      | MT Amateur                     | —            |
 
-(Las clases duran ~1 hora. "X + Y" = dos clases en el mismo bloque horario.)
+("X + Y" = dos clases en el mismo bloque horario.)
 
 ## Sistema Rama 2026 (catálogo de clases)
+
+Grappling / Jiu Jitsu ya NO se imparte (se eliminó del sitio en nov 2026).
 
 | Clase               | Descripción                                   |
 |---------------------|-----------------------------------------------|
@@ -44,7 +49,6 @@ tablas de semana completa de `Horarios.vue`) y la barra de datos de
 | Muay Thai Amateur   | Entrenamiento y desarrollo deportivo          |
 | Muay Thai Combat    | Equipo avanzado, selección por nivel técnico  |
 | Cross Training      | Preparación física complementaria             |
-| Grappling           | Clase de lucha con base de Jiu-Jitsu          |
 | Woman Muay Thai     | Entrenamiento exclusivo para mujeres          |
 
 ## SEO

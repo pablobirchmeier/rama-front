@@ -58,16 +58,18 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="fila in horarioAM" :key="fila.hora" class="h-14">
+                  <tr v-for="fila in tablaAM" :key="fila.hora" class="h-14">
                     <td class="text-[10px] font-black text-white/40 uppercase tracking-widest text-right pr-6 whitespace-nowrap">{{ fila.hora }} HRS.</td>
-                    <template v-for="(clase, i) in fila.clases" :key="i">
-                      <td v-if="!clase" class="bg-transparent border border-white/5 opacity-10"></td>
-                      <td v-else-if="Array.isArray(clase)" class="p-0 align-top">
-                        <div class="flex flex-col gap-1">
-                          <div v-for="c in clase" :key="c" class="bg-primary text-black px-2 py-2 text-center rounded-sm font-black text-[9px] uppercase italic leading-tight">{{ c }}</div>
-                        </div>
-                      </td>
-                      <td v-else class="bg-primary text-black p-3 text-center rounded-sm font-black text-[10px] uppercase italic leading-tight">{{ clase }}</td>
+                    <template v-for="(celda, i) in fila.celdas" :key="i">
+                      <template v-if="!celda.oculta">
+                        <td v-if="!celda.clases.length" class="bg-transparent border border-white/5 opacity-10"></td>
+                        <td v-else-if="celda.clases.length > 1" :rowspan="celda.rowspan" class="p-0 align-top">
+                          <div class="flex flex-col gap-1">
+                            <div v-for="c in celda.clases" :key="c" class="bg-primary text-black px-2 py-2 text-center rounded-sm font-black text-[9px] uppercase italic leading-tight">{{ c }}</div>
+                          </div>
+                        </td>
+                        <td v-else :rowspan="celda.rowspan" class="bg-primary text-black p-3 text-center rounded-sm font-black text-[10px] uppercase italic leading-tight">{{ celda.clases[0] }}</td>
+                      </template>
                     </template>
                   </tr>
                 </tbody>
@@ -92,16 +94,18 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="fila in horarioPM" :key="fila.hora" class="h-14">
+                  <tr v-for="fila in tablaPM" :key="fila.hora" class="h-14">
                     <td class="text-[10px] font-black text-white/40 uppercase tracking-widest text-right pr-6 whitespace-nowrap">{{ fila.hora }} HRS.</td>
-                    <template v-for="(clase, i) in fila.clases" :key="i">
-                      <td v-if="!clase" class="bg-transparent border border-white/5 opacity-10"></td>
-                      <td v-else-if="Array.isArray(clase)" class="p-0 align-top">
-                        <div class="flex flex-col gap-1">
-                          <div v-for="c in clase" :key="c" class="bg-primary text-black px-2 py-2 text-center rounded-sm font-black text-[9px] uppercase italic leading-tight">{{ c }}</div>
-                        </div>
-                      </td>
-                      <td v-else class="bg-primary text-black p-3 text-center rounded-sm font-black text-[10px] uppercase italic leading-tight">{{ clase }}</td>
+                    <template v-for="(celda, i) in fila.celdas" :key="i">
+                      <template v-if="!celda.oculta">
+                        <td v-if="!celda.clases.length" class="bg-transparent border border-white/5 opacity-10"></td>
+                        <td v-else-if="celda.clases.length > 1" :rowspan="celda.rowspan" class="p-0 align-top">
+                          <div class="flex flex-col gap-1">
+                            <div v-for="c in celda.clases" :key="c" class="bg-primary text-black px-2 py-2 text-center rounded-sm font-black text-[9px] uppercase italic leading-tight">{{ c }}</div>
+                          </div>
+                        </td>
+                        <td v-else :rowspan="celda.rowspan" class="bg-primary text-black p-3 text-center rounded-sm font-black text-[10px] uppercase italic leading-tight">{{ celda.clases[0] }}</td>
+                      </template>
                     </template>
                   </tr>
                 </tbody>
@@ -197,7 +201,7 @@ import Navbar from '../layouts/Navbar.vue';
 import Footer from '../layouts/Footer.vue';
 import { ref, watch } from 'vue';
 import HorarioPorDia from '../components/HorarioPorDia.vue';
-import { diasAM, diasPM, horarioAM, horarioPM } from '../data/horarios';
+import { diasAM, diasPM, horarioAM, horarioPM, tablaConBloques } from '../data/horarios';
 import { openBoxMagic } from '../utils/deepLinking';
 import { profesores } from '../data/profesores';
 
@@ -221,12 +225,15 @@ watch(mostrarSemana, (semana) => {
   }
 });
 
+// Tablas de semana completa: clases que siguen en la hora siguiente se muestran como una celda
+const tablaAM = tablaConBloques(horarioAM);
+const tablaPM = tablaConBloques(horarioPM);
+
 const sistema = [
   { nombre: 'Muay Thai Formativo', desc: 'Fundamento y base técnica del Muay Thai' },
   { nombre: 'Muay Thai Amateur', desc: 'Entrenamiento y desarrollo deportivo' },
   { nombre: 'Muay Thai Combat', desc: 'Equipo avanzado, selección por nivel técnico' },
   { nombre: 'Cross Training', desc: 'Preparación física complementaria' },
-  { nombre: 'Grappling', desc: 'Clase de lucha con base de Jiu-Jitsu' },
   { nombre: 'Woman Muay Thai', desc: 'Entrenamiento exclusivo para mujeres' },
 ];
 </script>

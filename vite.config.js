@@ -85,7 +85,7 @@ export default defineConfig({
                 name: "Rama Muay Thai",
                 short_name: "Rama",
                 description:
-                    "Escuela de Muay Thai en Chile — Formativo, Amateur, Combat, Women, Cross Training y Brazilian Jiu Jitsu.",
+                    "Escuela de Muay Thai en Chile — Formativo, Amateur, Combat, Woman Muay Thai y Cross Training.",
                 theme_color: "#FFD700",
                 background_color: "#000000",
                 display: "standalone",
