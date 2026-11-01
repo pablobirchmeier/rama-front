@@ -1,8 +1,9 @@
 <template>
   <div class="bg-background-dark text-white">
     <Navbar />
+    <!-- Textos: "HOME — RAMA MUAY THAI, versión actualizada octubre 2026" (enviado por el dueño) -->
     <main class="flex flex-col">
-      <!-- 1. HERO -->
+      <!-- 01. INICIO -->
       <section class="relative min-h-[95vh] flex flex-col items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
           <div class="absolute inset-0 hero-overlay z-10"></div>
@@ -18,18 +19,14 @@
           ></video>
         </div>
         <div class="revelar relative z-20 max-w-[1000px] w-full px-6 py-24 text-center flex flex-col items-center">
-          <div class="inline-flex items-center gap-2 mb-8 px-5 py-2 rounded-full border border-accent/50 bg-black/40 text-accent backdrop-blur-sm">
-            <span class="material-symbols-outlined text-sm">workspace_premium</span>
-            <span class="text-xs font-bold uppercase tracking-[0.25em]">Desde 2015</span>
-          </div>
           <h1 class="text-4xl md:text-7xl font-black uppercase leading-[0.95] tracking-tight mb-8">
             Entrena Muay Thai.<br /><span class="text-primary">Sé parte de Rama.</span>
           </h1>
           <p class="text-slate-200 text-lg md:text-2xl font-light max-w-2xl mx-auto mb-6 leading-relaxed">
-            Una escuela para aprender, entrenar y superarte, sin importar tu nivel de experiencia.
+            Aprende, entrena y supérate en una escuela que combina tradición marcial, formación deportiva y comunidad.
           </p>
-          <p class="text-white/60 text-base md:text-lg font-light max-w-2xl mx-auto mb-4 leading-relaxed">
-            Desde 2015 enseñamos Muay Thai combinando técnica, preparación física y comunidad en un ambiente de respeto y compañerismo.
+          <p class="text-primary font-bold uppercase tracking-[0.2em] text-xs md:text-sm mb-4">
+            Desde 2015 formando alumnos de todos los niveles.
           </p>
           <p class="text-white font-bold text-base md:text-lg mb-12">
             No necesitas experiencia previa. Solo las ganas de comenzar.
@@ -42,46 +39,35 @@
             <span class="material-symbols-outlined">arrow_forward</span>
           </button>
           <button
-            @click="scrollTo('horarios')"
+            @click="scrollTo('esencia')"
             class="mt-4 w-full sm:w-auto min-w-[300px] h-14 px-8 border-2 border-primary/50 hover:bg-primary/10 text-primary rounded-lg font-bold text-sm uppercase tracking-widest backdrop-blur-sm transition-all flex items-center justify-center gap-3"
           >
-            Ver horarios
-            <span class="material-symbols-outlined">calendar_month</span>
+            Conoce Rama
+            <span class="material-symbols-outlined">arrow_downward</span>
           </button>
         </div>
       </section>
 
-      <!-- 2. MUCHO MÁS QUE ENTRENAR -->
-      <section class="py-24 lg:py-32 px-6 max-w-[1200px] mx-auto w-full">
+      <!-- 02. NUESTRA ESENCIA -->
+      <section id="esencia" class="scroll-mt-20 py-24 lg:py-32 px-6 max-w-[1200px] mx-auto w-full">
         <div class="grid md:grid-cols-12 gap-16 items-center">
           <div class="md:col-span-5 flex flex-col gap-8">
             <div class="flex flex-col gap-2">
-              <span class="text-accent text-xs font-black uppercase tracking-[0.4em]">Mucho más que entrenar</span>
+              <span class="text-accent text-xs font-black uppercase tracking-[0.4em]">Nuestra esencia</span>
               <div class="w-16 h-1 bg-primary"></div>
             </div>
             <h2 class="text-4xl md:text-5xl font-black leading-tight tracking-tight uppercase">
-              Artes marciales para tu <span class="text-primary">desarrollo</span>.
+              Mucho más que <span class="text-primary">entrenar</span>
             </h2>
             <p class="text-white/70 text-lg leading-relaxed font-light">
-              En Rama creemos en las artes marciales como una herramienta de desarrollo físico y personal.
+              En Rama entendemos las artes marciales como un camino de aprendizaje, disciplina y superación.
             </p>
             <p class="text-white/70 text-lg leading-relaxed font-light">
-              Aquí puedes comenzar desde cero, mejorar tu condición física, perfeccionar tu técnica o prepararte para competir.
+              Ya sea que busques mejorar tu condición física, aprender Muay Thai o prepararte para competir, aquí encontrarás un espacio para progresar a tu ritmo.
             </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                v-for="d in disciplinas"
-                :key="d"
-                class="px-4 py-2 rounded-full border border-primary/40 bg-primary/5 text-primary text-xs font-bold uppercase tracking-widest"
-              >{{ d }}</span>
-            </div>
-            <button
-              @click="scrollTo('entrenamientos')"
-              class="self-start h-14 px-8 border-2 border-primary/50 hover:bg-primary/10 text-primary rounded-lg font-bold text-sm uppercase tracking-widest transition-all flex items-center gap-3"
-            >
-              Conoce nuestros entrenamientos
-              <span class="material-symbols-outlined">arrow_downward</span>
-            </button>
+            <p class="text-primary font-black uppercase tracking-[0.15em] text-sm md:text-base">
+              Respeto. Disciplina. Compañerismo. Superación.
+            </p>
           </div>
           <div class="md:col-span-7 flex flex-col gap-6">
             <div class="relative group">
@@ -96,37 +82,13 @@
         </div>
       </section>
 
-      <!-- 3. EMPIEZA A TU RITMO -->
-      <section class="relative py-20 lg:py-24 overflow-hidden border-y border-primary/20 bg-primary/[0.04]">
-        <div class="relative max-w-3xl mx-auto px-6 text-center flex flex-col items-center gap-6">
-          <span class="text-primary font-bold tracking-[0.4em] uppercase text-xs">Empieza a tu ritmo</span>
-          <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight leading-[0.95]">
-            ¿Nunca has entrenado Muay Thai?<br /><span class="text-primary">Perfecto.</span>
-          </h2>
-          <p class="text-white/65 text-base md:text-lg font-light leading-relaxed max-w-2xl">
-            Nuestro programa formativo está diseñado para enseñarte desde las bases y acompañarte progresivamente en tu aprendizaje.
-          </p>
-          <p class="font-mono text-sm md:text-base tracking-[0.3em] uppercase text-accent">Aprende. Entrena. Progresa.</p>
-          <button
-            @click="openBoxMagic"
-            class="h-14 px-10 bg-primary text-black font-black uppercase tracking-widest text-sm rounded-lg hover:brightness-110 transition-all flex items-center justify-center gap-3"
-          >
-            Quiero probar una clase
-            <span class="material-symbols-outlined">arrow_forward</span>
-          </button>
-        </div>
-      </section>
-
-      <!-- 4. MUAY THAI PARA TODOS LOS NIVELES -->
-      <section id="entrenamientos" class="scroll-mt-20 py-24 lg:py-32 px-6 max-w-[1400px] mx-auto w-full">
+      <!-- 03. PROGRAMAS DE MUAY THAI -->
+      <section class="py-24 lg:py-32 px-6 max-w-[1400px] mx-auto w-full">
         <div class="flex flex-col items-center text-center gap-4 mb-14 lg:mb-20">
-          <span class="text-primary font-bold tracking-[0.4em] uppercase text-xs">Muay Thai</span>
+          <span class="text-primary font-bold tracking-[0.4em] uppercase text-xs">Programas de Muay Thai</span>
           <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tight leading-[0.95]">
-            Muay Thai para <span class="text-primary">todos los niveles</span>
+            Un camino para <span class="text-primary">cada nivel</span>
           </h2>
-          <p class="max-w-2xl text-white/60 text-base md:text-lg font-light leading-relaxed">
-            Aprende Muay Thai de manera progresiva, desde sus fundamentos hasta el entrenamiento competitivo.
-          </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-7">
@@ -149,8 +111,7 @@
                 <span class="font-mono text-[10px] tracking-[0.4em] uppercase text-accent mb-3">0{{ i + 1 }} / Muay Thai</span>
                 <h3 class="text-2xl md:text-3xl font-black uppercase tracking-tight mb-1">{{ nivel.nombre }}</h3>
                 <p class="text-primary font-bold text-sm uppercase tracking-wider mb-3">{{ nivel.lema }}</p>
-                <p class="text-white/75 text-sm leading-relaxed mb-3">{{ nivel.texto }}</p>
-                <p class="text-white/50 text-xs leading-relaxed mb-5">{{ nivel.para }}</p>
+                <p class="text-white/75 text-sm leading-relaxed mb-5">{{ nivel.texto }}</p>
                 <span class="text-primary text-xs font-bold uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all">
                   Ver clase <span class="material-symbols-outlined text-base">arrow_forward</span>
                 </span>
@@ -158,28 +119,34 @@
             </div>
           </router-link>
         </div>
+
+        <div class="flex justify-center mt-12">
+          <router-link
+            to="/clases/muay-thai-formativo"
+            class="h-14 px-10 border-2 border-primary/50 hover:bg-primary/10 text-primary rounded-lg font-bold text-sm uppercase tracking-widest transition-all flex items-center justify-center gap-3"
+          >
+            Conoce nuestros programas
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </router-link>
+        </div>
       </section>
 
-      <!-- 5. OTROS ENTRENAMIENTOS -->
+      <!-- 04. ENTRENAMIENTOS COMPLEMENTARIOS -->
       <section class="py-24 lg:py-32 bg-white/[0.015] border-y border-white/5">
-        <div class="max-w-[1400px] mx-auto px-6">
-          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 lg:mb-16">
-            <div>
-              <span class="text-primary font-bold tracking-[0.4em] uppercase text-xs">Otros entrenamientos</span>
-              <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight mt-3">Complementa tu entrenamiento</h2>
-            </div>
+        <div class="max-w-[1100px] mx-auto px-6">
+          <div class="flex flex-col items-center text-center gap-4 mb-12 lg:mb-16">
+            <span class="text-primary font-bold tracking-[0.4em] uppercase text-xs">Entrenamientos complementarios</span>
+            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight">Potencia tu <span class="text-primary">entrenamiento</span></h2>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
-            <component
-              :is="item.to ? 'router-link' : 'button'"
-              v-for="item in otros"
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
+            <router-link
+              v-for="item in complementarios"
               :key="item.nombre"
               :to="item.to"
-              @click="!item.to && openWhatsApp('Hola Rama! Quiero información sobre entrenamientos personalizados.')"
-              class="group text-left flex flex-col rounded-xl overflow-hidden border border-white/10 hover:border-primary/60 bg-black transition-all cursor-pointer"
+              class="group flex flex-col rounded-xl overflow-hidden border border-white/10 hover:border-primary/60 bg-black transition-all"
             >
-              <div class="aspect-[4/3] relative overflow-hidden">
+              <div class="aspect-[16/9] relative overflow-hidden">
                 <img
                   :src="item.imagen"
                   :alt="item.nombre"
@@ -191,17 +158,28 @@
               </div>
               <div class="flex flex-col gap-3 p-6 lg:p-7 flex-1">
                 <h3 class="text-xl lg:text-2xl font-black uppercase tracking-tight text-primary">{{ item.nombre }}</h3>
+                <p class="text-white font-bold text-sm">{{ item.lema }}</p>
                 <p class="text-white/70 text-sm leading-relaxed flex-1">{{ item.texto }}</p>
                 <span class="text-primary text-xs font-bold uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all mt-2">
-                  {{ item.to ? 'Ver clase' : 'Consultar' }} <span class="material-symbols-outlined text-base">arrow_forward</span>
+                  {{ item.accion }} <span class="material-symbols-outlined text-base">arrow_forward</span>
                 </span>
               </div>
-            </component>
+            </router-link>
+          </div>
+
+          <div class="flex justify-center mt-12">
+            <router-link
+              to="/clases/cross-training"
+              class="h-14 px-10 border-2 border-primary/50 hover:bg-primary/10 text-primary rounded-lg font-bold text-sm uppercase tracking-widest transition-all flex items-center justify-center gap-3"
+            >
+              Explora nuestros entrenamientos
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </router-link>
           </div>
         </div>
       </section>
 
-      <!-- 6. TEAM RAMA -->
+      <!-- 05. TEAM RAMA -->
       <section class="py-24 lg:py-32 px-6 max-w-[1300px] mx-auto w-full">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <!-- sparring2.mp4 es vertical (720x1280): contenedor 9:16 para mostrarlo completo, sin recorte -->
@@ -222,48 +200,80 @@
               De la escuela<br />al <span class="text-primary">ring</span>
             </h2>
             <p class="text-white/80 text-lg leading-relaxed">
-              Para quienes deciden llevar su entrenamiento un paso más allá.
+              Nuestra formación también se refleja en el ámbito competitivo.
             </p>
             <p class="text-white/60 text-base leading-relaxed font-light">
-              Team Rama reúne a nuestros deportistas en formación, competidores amateur y profesionales que representan a la escuela en diferentes eventos y competencias.
-            </p>
-            <p class="text-white/60 text-base leading-relaxed font-light">
-              El proceso competitivo se construye con disciplina, preparación, respeto y compromiso.
+              Team Rama reúne a deportistas amateur y profesionales que representan a la escuela en distintas competencias.
             </p>
             <div class="border-l-4 border-primary pl-5 py-1">
               <p class="text-white text-base leading-relaxed">
-                No necesitas querer competir para formar parte de Rama.<br />
-                <span class="text-primary font-bold">Pero si algún día decides hacerlo, existe un camino para llegar ahí.</span>
+                No necesitas competir para pertenecer a Rama.<br />
+                <span class="text-primary font-bold">Pero si decides hacerlo, tenemos un camino para ti.</span>
               </p>
             </div>
+            <router-link
+              to="/clases/muay-thai-combat"
+              class="self-start h-14 px-8 border-2 border-primary/50 hover:bg-primary/10 text-primary rounded-lg font-bold text-sm uppercase tracking-widest transition-all flex items-center gap-3"
+            >
+              Conoce Team Rama
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </router-link>
           </div>
         </div>
       </section>
 
-      <!-- 7. PLANES -->
+      <!-- 06. TU PRIMERA CLASE -->
       <section class="py-24 lg:py-32 bg-white/[0.015] border-y border-white/5">
-        <div class="max-w-[1200px] mx-auto px-6">
+        <div class="max-w-[1300px] mx-auto px-6">
           <div class="flex flex-col items-center text-center gap-4 mb-14">
-            <span class="text-primary font-bold tracking-[0.4em] uppercase text-xs">Planes</span>
-            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight">Elige cómo quieres <span class="text-primary">entrenar</span></h2>
-            <p class="max-w-2xl text-white/60 text-base md:text-lg font-light leading-relaxed">
-              Tenemos diferentes alternativas según tu disponibilidad y objetivos.
+            <span class="text-primary font-bold tracking-[0.4em] uppercase text-xs">Tu primera clase</span>
+            <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tight leading-[0.95]">
+              Todos comenzamos <span class="text-primary">desde cero</span>
+            </h2>
+            <p class="max-w-2xl text-white/70 text-base md:text-lg font-light leading-relaxed">
+              ¿Nunca has entrenado Muay Thai? Estás en el lugar indicado.
             </p>
+            <p class="text-white font-bold text-lg">Te enseñaremos paso a paso, sin necesidad de experiencia previa.</p>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             <div
-              v-for="plan in planes"
-              :key="plan.nombre"
-              class="flex flex-col gap-4 p-7 rounded-2xl border border-white/10 bg-black hover:border-primary/50 transition-all"
+              v-for="(paso, i) in pasos"
+              :key="paso.titulo"
+              class="relative flex flex-col gap-3 p-7 rounded-2xl border border-white/10 bg-black"
             >
-              <span class="material-symbols-outlined text-primary text-3xl">{{ plan.icono }}</span>
-              <h3 class="text-white font-black uppercase tracking-tight text-lg leading-tight">{{ plan.nombre }}</h3>
-              <p class="text-white/55 text-sm leading-relaxed">{{ plan.texto }}</p>
+              <span class="text-gold-gradient text-5xl font-black leading-none">{{ i + 1 }}</span>
+              <h3 class="text-white font-black uppercase tracking-tight text-lg">{{ paso.titulo }}</h3>
+              <p class="text-white/55 text-sm leading-relaxed">{{ paso.texto }}</p>
             </div>
           </div>
 
-          <div class="flex flex-col items-center gap-5 mt-14">
+          <div class="flex justify-center mt-14">
+            <button
+              @click="openBoxMagic"
+              class="w-full sm:w-auto min-w-[300px] h-16 px-8 bg-primary hover:brightness-110 text-black rounded-lg font-black text-lg shadow-2xl shadow-primary/30 transition-all flex items-center justify-center gap-3 uppercase tracking-widest border-b-4 border-black/20"
+            >
+              Agenda tu clase de prueba
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07. PLANES Y HORARIOS -->
+      <section class="py-24 lg:py-28 px-6">
+        <div class="max-w-3xl mx-auto flex flex-col items-center text-center gap-6">
+          <span class="text-primary font-bold tracking-[0.4em] uppercase text-xs">Planes y horarios</span>
+          <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight leading-[0.95]">
+            Entrena a <span class="text-primary">tu ritmo</span>
+          </h2>
+          <p class="text-white/70 text-base md:text-lg font-light leading-relaxed">
+            Contamos con diferentes planes y horarios para que puedas entrenar según tu disponibilidad y objetivos.
+          </p>
+          <p class="text-white/70 text-base md:text-lg font-light leading-relaxed">
+            Clases de Muay Thai y Cross Training durante la mañana, mediodía y tarde, además de entrenamientos personalizados.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 mt-4 w-full sm:w-auto">
             <router-link
               to="/planes"
               class="h-14 px-10 bg-primary text-black font-black uppercase tracking-widest text-sm rounded-lg hover:brightness-110 transition-all flex items-center justify-center gap-3"
@@ -271,116 +281,56 @@
               Ver planes y valores
               <span class="material-symbols-outlined">arrow_forward</span>
             </router-link>
-            <p class="text-white/50 text-sm uppercase tracking-widest mt-2">¿No sabes cuál elegir?</p>
-            <button
-              @click="openWhatsApp('Hola Rama! Quiero ayuda para elegir un plan.')"
-              class="h-12 px-8 border border-white/30 text-white font-bold uppercase tracking-widest text-xs rounded-lg hover:border-primary hover:text-primary transition-all flex items-center justify-center gap-2"
+            <router-link
+              to="/horarios"
+              class="h-14 px-10 border-2 border-primary/50 hover:bg-primary/10 text-primary rounded-lg font-bold text-sm uppercase tracking-widest transition-all flex items-center justify-center gap-3"
             >
-              <IconoWhatsApp color class="size-5" />
-              Habla con nosotros
-            </button>
+              Revisar horarios
+              <span class="material-symbols-outlined">calendar_month</span>
+            </router-link>
           </div>
         </div>
       </section>
 
-      <!-- 8. HORARIOS (mismo componente que la vista /horarios) -->
-      <section id="horarios" class="scroll-mt-20 py-24 lg:py-28 px-4 sm:px-6">
-        <div class="max-w-[1100px] mx-auto flex flex-col gap-10">
-          <div class="flex flex-col items-center text-center gap-4">
-            <span class="text-primary font-bold tracking-[0.4em] uppercase text-xs">Horarios</span>
-            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight leading-[0.95]">
-              Entrena cuando mejor <span class="text-primary">te acomode</span>
-            </h2>
-            <p class="max-w-2xl text-white/65 text-base md:text-lg font-light leading-relaxed">
-              Contamos con clases durante la mañana, mediodía y tarde para que puedas integrar el entrenamiento a tu rutina.
-              Selecciona el día que quieras entrenar y revisa los horarios disponibles.
-            </p>
-          </div>
-
-          <HorarioPorDia />
-
+      <!-- 08. EQUIPO Y TRAYECTORIA -->
+      <section class="py-24 lg:py-32 bg-white/[0.015] border-y border-white/5 px-6">
+        <div class="max-w-3xl mx-auto flex flex-col items-center text-center gap-6">
+          <span class="text-primary font-bold tracking-[0.4em] uppercase text-xs">Equipo y trayectoria</span>
+          <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tight leading-[0.95]">
+            Desde <span class="text-primary">2015</span> formando personas y deportistas
+          </h2>
+          <p class="text-white/70 text-lg leading-relaxed font-light">
+            Rama nació con el propósito de enseñar Muay Thai a través de la disciplina, la técnica y el respeto por sus tradiciones.
+          </p>
+          <p class="text-white/70 text-lg leading-relaxed font-light">
+            Hoy reunimos alumnos recreativos, deportistas y competidores bajo una misma comunidad.
+          </p>
+          <p class="text-white text-lg font-bold">
+            Nuestro equipo de profesores te acompañará en cada etapa de tu aprendizaje.
+          </p>
           <router-link
             to="/horarios"
-            class="self-center h-12 px-8 border border-white/20 rounded-full text-white/70 hover:text-primary hover:border-primary/50 text-xs font-bold uppercase tracking-widest transition-all flex items-center gap-2"
+            class="mt-2 h-14 px-10 border-2 border-primary/50 hover:bg-primary/10 text-primary rounded-lg font-bold text-sm uppercase tracking-widest transition-all flex items-center justify-center gap-3"
           >
-            <span class="material-symbols-outlined text-lg">calendar_view_week</span>
-            Ver semana completa
-            <span class="material-symbols-outlined text-lg">arrow_forward</span>
+            Conoce nuestra escuela
+            <span class="material-symbols-outlined">arrow_forward</span>
           </router-link>
         </div>
       </section>
 
-      <!-- 9. EQUIPO RAMA -->
-      <section class="py-24 lg:py-32 bg-white/[0.015] border-y border-white/5">
-        <div class="max-w-[1200px] mx-auto px-6">
-          <div class="flex flex-col gap-4 mb-14 max-w-3xl">
-            <span class="text-primary font-bold tracking-[0.4em] uppercase text-xs">Equipo Rama</span>
-            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight leading-[0.95]">
-              Quienes te van a <span class="text-primary">acompañar</span>
-            </h2>
-            <p class="text-white/65 text-base md:text-lg font-light leading-relaxed">
-              Nuestro equipo está compuesto por profesores y entrenadores especializados en las diferentes áreas de la escuela.
-            </p>
-            <p class="text-white/65 text-base md:text-lg font-light leading-relaxed">
-              Más que dirigir una clase, nuestro trabajo es acompañar tu proceso, corregir tu técnica y ayudarte a progresar de manera segura y constante.
-            </p>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            <div v-for="profe in profesores" :key="profe.nombre" class="flex flex-col gap-5 group">
-              <div class="relative w-full aspect-3/4 rounded-xl overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-[1.02] border-b-4 border-primary">
-                <img :src="profe.foto" :alt="profe.nombre" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80"></div>
-                <div class="absolute bottom-4 left-4">
-                  <span class="bg-primary text-black px-3 py-1 text-[10px] font-black uppercase rounded-sm tracking-widest shadow-lg">{{ profe.disciplina }}</span>
-                </div>
-              </div>
-              <div class="px-1 flex flex-col gap-1">
-                <p class="text-primary text-2xl font-black uppercase tracking-tight">{{ profe.nombre }}</p>
-                <p class="text-white/60 text-xs font-bold uppercase tracking-widest">{{ profe.rol }}</p>
-                <p v-if="profe.descripcion" class="text-white/55 text-sm leading-relaxed mt-2">{{ profe.descripcion }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 10. NOSOTROS -->
-      <section class="py-24 lg:py-32 px-6">
-        <div class="max-w-3xl mx-auto flex flex-col items-center text-center gap-6">
-          <span class="text-primary font-bold tracking-[0.4em] uppercase text-xs">Nosotros</span>
-          <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tight leading-[0.95]">
-            Desde <span class="text-primary">2015</span><br />construyendo Rama
-          </h2>
-          <p class="text-white/70 text-lg leading-relaxed font-light">
-            Rama Muay Thai nace con una idea sencilla: crear una escuela donde las artes marciales fueran más que aprender a pelear.
-          </p>
-          <p class="text-white text-xl font-bold">Un lugar para entrenar, aprender, superarse y pertenecer.</p>
-          <p class="text-white/60 text-base leading-relaxed font-light">
-            Con los años hemos formado alumnos recreativos, competidores amateur y deportistas profesionales, construyendo una comunidad donde conviven personas con distintos objetivos bajo los mismos valores.
-          </p>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 w-full mt-4">
-            <div v-for="v in valores" :key="v" class="py-5 rounded-xl border border-primary/30 bg-primary/5">
-              <span class="text-primary font-black uppercase tracking-widest text-sm">{{ v }}</span>
-            </div>
-          </div>
-          <p class="text-3xl md:text-4xl font-black uppercase tracking-tight mt-4">Eso es <span class="text-primary">Rama</span>.</p>
-        </div>
-      </section>
-
-      <!-- 11. GALERÍA -->
-      <section class="py-24 lg:py-32 bg-white/[0.015] border-y border-white/5">
+      <!-- 09. GALERÍA -->
+      <section class="py-24 lg:py-32">
         <div class="max-w-[1400px] mx-auto px-6">
           <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div class="flex flex-col gap-3">
               <span class="text-primary font-bold tracking-[0.4em] uppercase text-xs">Galería</span>
               <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight">Así se vive <span class="text-primary">Rama</span></h2>
               <p class="max-w-xl text-white/60 text-base font-light leading-relaxed">
-                Entrenamientos, seminarios, competencias, eventos y momentos de nuestra comunidad.
+                Entrenamientos, seminarios, competencias y momentos que forman parte de nuestra comunidad.
               </p>
             </div>
             <p class="text-white/80 text-lg md:text-right leading-snug">
-              Porque Rama no solamente se explica.<br /><span class="text-primary font-black uppercase">Se vive.</span>
+              Rama no solamente se explica.<br /><span class="text-primary font-black uppercase">Se vive.</span>
             </p>
           </div>
 
@@ -401,57 +351,10 @@
               <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
             </div>
           </div>
-
-          <div class="flex justify-center mt-12">
-            <button
-              @click="openBoxMagic"
-              class="h-14 px-10 bg-primary text-black font-black uppercase tracking-widest text-sm rounded-lg hover:brightness-110 transition-all flex items-center justify-center gap-3"
-            >
-              Quiero ser parte
-              <span class="material-symbols-outlined">arrow_forward</span>
-            </button>
-          </div>
         </div>
       </section>
 
-      <!-- 12. PRIMERA CLASE -->
-      <section class="py-24 lg:py-32 px-6 max-w-[1300px] mx-auto w-full">
-        <div class="flex flex-col items-center text-center gap-4 mb-14">
-          <span class="text-primary font-bold tracking-[0.4em] uppercase text-xs">Primera clase</span>
-          <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tight leading-[0.95]">
-            ¿Nunca has entrenado <span class="text-primary">Muay Thai</span>?
-          </h2>
-          <p class="max-w-2xl text-white/60 text-base md:text-lg font-light leading-relaxed">
-            No necesitas experiencia previa ni estar en excelente condición física para comenzar.
-          </p>
-          <p class="text-white font-bold text-lg">Nosotros te enseñamos desde cero.</p>
-        </div>
-
-        <h3 class="text-center text-accent font-mono text-xs tracking-[0.4em] uppercase mb-8">Tu primera experiencia en Rama</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          <div
-            v-for="(paso, i) in pasos"
-            :key="paso.titulo"
-            class="relative flex flex-col gap-3 p-7 rounded-2xl border border-white/10 bg-white/[0.02]"
-          >
-            <span class="text-gold-gradient text-5xl font-black leading-none">{{ i + 1 }}</span>
-            <h4 class="text-white font-black uppercase tracking-tight text-lg">{{ paso.titulo }}</h4>
-            <p class="text-white/55 text-sm leading-relaxed">{{ paso.texto }}</p>
-          </div>
-        </div>
-
-        <div class="flex justify-center mt-14">
-          <button
-            @click="openBoxMagic"
-            class="w-full sm:w-auto min-w-[300px] h-16 px-8 bg-primary hover:brightness-110 text-black rounded-lg font-black text-lg shadow-2xl shadow-primary/30 transition-all flex items-center justify-center gap-3 uppercase tracking-widest border-b-4 border-black/20"
-          >
-            Agenda tu clase de prueba
-            <span class="material-symbols-outlined">arrow_forward</span>
-          </button>
-        </div>
-      </section>
-
-      <!-- 13. UBICACIÓN -->
+      <!-- 10. UBICACIÓN -->
       <section class="py-24 lg:py-32 bg-white/[0.015] border-y border-white/5">
         <div class="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
           <div class="lg:col-span-5 flex flex-col justify-center gap-6">
@@ -459,11 +362,11 @@
             <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight leading-[0.95]">
               Te esperamos en <span class="text-primary">Barrio Italia</span>
             </h2>
-            <div class="flex gap-4 items-start">
-              <div class="size-11 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
+            <div class="flex gap-4 items-center">
+              <div class="size-11 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
                 <span class="material-symbols-outlined text-primary">location_on</span>
               </div>
-              <p class="text-white text-xl leading-snug">Tegualda 1895<br /><span class="text-white/60 text-base">Ñuñoa, Santiago</span></p>
+              <p class="text-white text-lg leading-snug">Tegualda 1895, Ñuñoa, Santiago.</p>
             </div>
             <p class="text-white/60 text-base font-light leading-relaxed">
               Ven a conocer nuestra escuela, nuestro equipo y nuestra comunidad.
@@ -483,7 +386,7 @@
                 class="h-14 px-7 bg-[#25D366] text-white font-bold uppercase tracking-widest text-xs rounded-lg hover:brightness-110 transition-all flex items-center justify-center gap-2"
               >
                 <IconoWhatsApp class="size-5" />
-                Contactar por WhatsApp
+                Hablar por WhatsApp
               </button>
             </div>
           </div>
@@ -502,7 +405,7 @@
         </div>
       </section>
 
-      <!-- 14. CIERRE / CTA -->
+      <!-- 11. CIERRE -->
       <section class="relative py-28 lg:py-36 overflow-hidden">
         <div class="absolute inset-0 z-0">
           <img src="/inicio.jpg" alt="" class="w-full h-full object-cover opacity-15" loading="lazy" decoding="async"/>
@@ -510,22 +413,19 @@
         </div>
         <div class="relative z-10 max-w-3xl mx-auto px-6 text-center flex flex-col items-center gap-6">
           <h2 class="text-4xl md:text-6xl font-black uppercase leading-[0.95] tracking-tight">
-            Tu primer paso es<br /><span class="text-primary">venir a entrenar</span>
+            Tu camino <span class="text-primary">comienza aquí</span>
           </h2>
           <p class="text-white/65 text-base md:text-lg font-light leading-relaxed max-w-2xl">
-            No importa si nunca has practicado un arte marcial.
-          </p>
-          <p class="text-white/65 text-base md:text-lg font-light leading-relaxed max-w-2xl">
-            No importa si quieres mejorar tu condición física, aprender Muay Thai o algún día subirte a competir.
+            No importa tu experiencia ni tu objetivo.
           </p>
           <p class="text-white text-lg md:text-xl font-bold">
-            Todos comenzaron alguna vez desde cero.<br /><span class="text-primary">Ahora puede ser tu turno.</span>
+            Hay un lugar para ti en Rama.
           </p>
           <button
             @click="openBoxMagic"
             class="mt-4 w-full sm:w-auto min-w-[300px] h-16 px-8 bg-primary hover:brightness-110 text-black rounded-lg font-black text-lg shadow-2xl shadow-primary/30 transition-all flex items-center justify-center gap-3 uppercase tracking-widest border-b-4 border-black/20"
           >
-            Agenda tu primera clase
+            Agenda tu clase de prueba
             <span class="material-symbols-outlined">arrow_forward</span>
           </button>
         </div>
@@ -539,74 +439,39 @@
 import Navbar from '../layouts/Navbar.vue';
 import Footer from '../layouts/Footer.vue';
 import IconoWhatsApp from '../components/IconoWhatsApp.vue';
-import HorarioPorDia from '../components/HorarioPorDia.vue';
 import { openBoxMagic, openWhatsApp, MAPS_URL } from '../utils/deepLinking';
-import { profesores } from '../data/profesores';
+import { programas } from '../data/clases';
 
 function scrollTo(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 }
 
-const disciplinas = ['Muay Thai', 'Cross Training', 'Grappling / Jiu Jitsu', 'Entrenamientos personalizados'];
-
-// Progresión Formativo -> Amateur -> Combat
+// Programas de Muay Thai (mismo texto que el encabezado de cada página de clase: src/data/clases.js)
 const niveles = [
-  {
-    nombre: 'Formativo',
-    lema: 'Tu punto de partida.',
-    texto: 'Aprende postura, desplazamientos, golpes, defensas y combinaciones mientras desarrollas tu condición física.',
-    para: 'Ideal si estás comenzando o quieres construir una buena base técnica.',
-    imagen: '/foto_ejemplo.JPG',
-    to: '/clases/muay-thai-formativo',
-  },
-  {
-    nombre: 'Amateur',
-    lema: 'Lleva tu técnica al siguiente nivel.',
-    texto: 'Entrenamientos con mayor intensidad, combinaciones avanzadas, trabajo táctico y situaciones reales de combate.',
-    para: 'Para alumnos con experiencia que buscan continuar progresando.',
-    imagen: '/foto1.JPG',
-    to: '/clases/muay-thai-amateur',
-  },
-  {
-    nombre: 'Combat',
-    lema: 'Entrena para competir.',
-    texto: 'Preparación técnica, táctica y física orientada al rendimiento competitivo.',
-    para: 'Un espacio destinado a nuestros deportistas y equipo de competencia.',
-    imagen: '/2home.JPG',
-    to: '/clases/muay-thai-combat',
-  },
+  { ...programas.formativo, nombre: 'Formativo', imagen: '/foto_ejemplo.JPG', to: '/clases/muay-thai-formativo' },
+  { ...programas.amateur, nombre: 'Amateur', imagen: '/foto1.JPG', to: '/clases/muay-thai-amateur' },
+  { ...programas.combat, nombre: 'Combat', imagen: '/2home.JPG', to: '/clases/muay-thai-combat' },
 ];
 
-// Sin `to` => abre WhatsApp (no hay página propia)
-const otros = [
+// Entrenamientos complementarios. Personalizado lleva a Planes (ahí están los planes personalizados).
+const complementarios = [
   {
     nombre: 'Cross Training',
-    texto: 'Desarrolla fuerza, resistencia, potencia y movilidad mediante entrenamientos físicos complementarios al Muay Thai.',
+    lema: 'Más fuerza. Más resistencia. Mejor rendimiento.',
+    texto: 'Desarrolla fuerza, resistencia, potencia y movilidad mediante entrenamientos que complementan tu preparación física.',
     imagen: '/1home.JPG',
     to: '/clases/cross-training',
-  },
-  {
-    nombre: 'Grappling / Jiu Jitsu',
-    texto: 'Aprende control, derribos, posiciones y técnicas de combate en suelo mediante un entrenamiento técnico y progresivo.',
-    imagen: '/inicio.jpg',
-    to: '/clases/brazilian-jiujitsu',
+    accion: 'Ver clase',
   },
   {
     nombre: 'Entrenamiento Personalizado',
-    texto: 'Entrenamiento individual adaptado a tus objetivos. Mejora técnica, condición física, trabajo de pads o preparación específica con atención personalizada.',
+    lema: 'Un entrenamiento diseñado para ti.',
+    texto: 'Sesiones individuales adaptadas a tus objetivos y nivel de experiencia, con atención personalizada para mejorar tu técnica y condición física.',
     imagen: '/foto1.JPG',
-    to: null,
+    to: '/planes',
+    accion: 'Ver planes',
   },
 ];
-
-const planes = [
-  { icono: 'groups', nombre: 'Planes de clases grupales', texto: 'Muay Thai y Cross Training.' },
-  { icono: 'all_inclusive', nombre: 'Plan ilimitado', texto: 'Mayor libertad para combinar nuestras disciplinas y entrenamientos.' },
-  { icono: 'sports_kabaddi', nombre: 'Grappling / Jiu Jitsu', texto: 'Plan específico para entrenamiento de combate en suelo.' },
-  { icono: 'person', nombre: 'Entrenamientos personalizados', texto: 'Sesiones individuales adaptadas a tus objetivos.' },
-];
-
-const valores = ['Respeto', 'Disciplina', 'Compañerismo', 'Superación'];
 
 // Galería: reemplazar/agregar fotos de seminarios, competencias y eventos cuando lleguen
 const galeria = [
@@ -619,10 +484,10 @@ const galeria = [
 ];
 
 const pasos = [
-  { titulo: 'Agenda tu clase', texto: 'Selecciona un horario disponible.' },
-  { titulo: 'Ven a entrenar', texto: 'Llega unos minutos antes para que podamos recibirte y orientarte.' },
-  { titulo: 'Conoce Rama', texto: 'Entrena junto a nuestro equipo y descubre cómo funciona la escuela.' },
-  { titulo: 'Elige tu plan', texto: 'Si quieres continuar, te ayudamos a encontrar la alternativa que mejor se adapte a tus objetivos.' },
+  { titulo: 'Agenda tu clase.', texto: 'Elige un horario disponible.' },
+  { titulo: 'Ven a entrenar.', texto: 'Nuestro equipo te recibirá y orientará.' },
+  { titulo: 'Vive la experiencia.', texto: 'Conoce nuestra metodología, profesores y comunidad.' },
+  { titulo: 'Continúa tu camino.', texto: 'Te ayudamos a elegir el plan adecuado para ti.' },
 ];
 </script>
 
