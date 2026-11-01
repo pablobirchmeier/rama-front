@@ -33,12 +33,6 @@ export const clases = {
         texto: 'Nadie llega rápido. Y nadie llega solo a fuerza. El Formativo se construye con repetición — los mismos golpes, las mismas correcciones, hasta que tu cuerpo deja de pensar y empieza a responder. Aquí no entrenamos para verse — entrenamos para que el día que el cuerpo tenga que reaccionar, sepa.',
         imagenIzquierda: false,
       },
-      {
-        label: '03 / Linaje y respeto',
-        titulo: 'Tradición Boran',
-        texto: 'Antes de ser deporte, el Muay Thai fue arte de guerra. Cada técnica, cada ritual, cada respeto al maestro viene de una línea de siglos. En Rama honramos esa raíz: el Wai Khru, el orden del salón, el saludo al kru. Aquí no aprendes solo a pelear — entras a una tradición que se respeta dentro y fuera del ring.',
-        imagenIzquierda: true,
-      },
     ],
   },
 
@@ -85,7 +79,7 @@ export const clases = {
     titulo: ['Muay Thai', 'Combat.'],
     lema: 'Entrena para combatir.',
     texto: 'Preparación técnica, física y táctica para deportistas avanzados y competidores de Rama.',
-    videos: ['/sparring/Sparring%20Profe%20Ramiro%20vs%20Omar.mp4', '/sparring/sparring2.mp4'],
+    videos: ['/sparring/sparring2.mp4', '/sparring/Sparring%20Profe%20Ramiro%20vs%20Omar.mp4'],
     claseHorario: 'Muay Thai Combat',
     frase: 'El miedo no se vence afuera del ring. Se vence dentro.',
     secciones: [

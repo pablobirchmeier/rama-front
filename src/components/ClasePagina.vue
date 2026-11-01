@@ -4,63 +4,56 @@
     <Navbar />
 
     <main class="relative flex-1 flex flex-col overflow-hidden bg-background-dark">
-      <!-- Encabezado: video "bajado" (banda oscura arriba); el texto se monta sobre la parte alta del video -->
-      <div class="relative w-full overflow-hidden aspect-[3/2] min-h-[40rem]">
-        <div class="absolute inset-x-0 bottom-0 h-[74%] overflow-hidden">
-          <video
-            :key="videoActual"
-            :src="datos.videos[videoActual]"
-            class="w-full h-full object-cover block"
-            autoplay
-            muted
-            :loop="datos.videos.length === 1"
-            playsinline
-            preload="auto"
-            @ended="siguienteVideo"
-          ></video>
-          <!-- Gradientes para legibilidad del título -->
-          <div class="absolute inset-0 bg-gradient-to-r from-background-dark/85 via-background-dark/20 to-transparent"></div>
-          <div class="absolute inset-0 bg-gradient-to-t from-background-dark/90 via-transparent to-transparent"></div>
-          <!-- Fundido superior: funde el borde de arriba del video con la banda oscura -->
-          <div class="absolute inset-0 bg-[linear-gradient(to_bottom,#000_0%,transparent_20%)]"></div>
-        </div>
-
-        <div class="absolute inset-0 z-10 flex items-start pt-8 sm:pt-10 lg:pt-14">
-          <div class="w-full max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-24">
-            <div class="flex items-center gap-3 w-fit border border-accent/40 rounded-md px-5 py-3 mb-6 lg:mb-10 bg-black/40 backdrop-blur-sm">
+      <!-- Encabezado: texto + botones a la izquierda, video vertical completo a la derecha
+           (los videos de las clases son verticales 9:16: se muestran enteros, brillo 70%, sin degradados) -->
+      <div class="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-24 pt-8 sm:pt-10 lg:pt-14 pb-16 lg:pb-20">
+        <div class="grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-16 items-center">
+          <div class="flex flex-col">
+            <div class="flex items-center gap-3 w-fit border border-accent/40 rounded-md px-5 py-3 mb-6 lg:mb-10 bg-black/40">
               <span class="size-2 rounded-full bg-accent animate-pulse"></span>
               <span class="font-mono text-[11px] sm:text-xs tracking-[0.35em] uppercase text-accent">{{ datos.etiqueta }}</span>
             </div>
 
-            <h1 class="font-black uppercase leading-[0.85] tracking-tight text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] drop-shadow-2xl">
+            <h1 class="font-black uppercase leading-[0.85] tracking-tight text-5xl sm:text-7xl md:text-8xl xl:text-9xl">
               <span class="block text-white">{{ datos.titulo[0] }}</span>
               <span class="block text-primary">{{ datos.titulo[1] }}</span>
             </h1>
 
-            <div class="mt-5 lg:mt-10 max-w-xl flex flex-col gap-2 drop-shadow-lg">
+            <div class="mt-6 lg:mt-10 max-w-xl flex flex-col gap-2">
               <p class="text-primary font-bold text-sm sm:text-base uppercase tracking-wider">{{ datos.lema }}</p>
-              <p class="text-slate-200 text-sm sm:text-lg font-light leading-relaxed">{{ datos.texto }}</p>
+              <p class="text-slate-200 text-base sm:text-lg font-light leading-relaxed">{{ datos.texto }}</p>
               <p v-if="datos.nota" class="text-white/60 text-xs sm:text-sm leading-relaxed">{{ datos.nota }}</p>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Botones -->
-      <div class="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-24 py-12">
-        <div class="flex flex-col sm:flex-row gap-4">
-          <button
-            @click="openBoxMagic"
-            class="h-14 px-8 bg-primary text-black font-bold uppercase tracking-widest text-sm rounded-md hover:brightness-110 transition-all flex items-center justify-center"
-          >
-            Agenda tu clase de prueba
-          </button>
-          <router-link
-            to="/horarios"
-            class="h-14 px-8 border border-white/30 text-white font-bold uppercase tracking-widest text-sm rounded-md hover:border-primary hover:text-primary transition-all flex items-center justify-center"
-          >
-            Ver horarios
-          </router-link>
+            <div class="mt-10 flex flex-col sm:flex-row gap-4">
+              <button
+                @click="openBoxMagic"
+                class="h-14 px-8 bg-primary text-black font-bold uppercase tracking-widest text-sm rounded-md hover:brightness-110 transition-all flex items-center justify-center"
+              >
+                Agenda tu clase de prueba
+              </button>
+              <router-link
+                to="/horarios"
+                class="h-14 px-8 border border-white/30 text-white font-bold uppercase tracking-widest text-sm rounded-md hover:border-primary hover:text-primary transition-all flex items-center justify-center"
+              >
+                Ver horarios
+              </router-link>
+            </div>
+          </div>
+
+          <div class="relative mx-auto w-full max-w-[320px] sm:max-w-[360px] lg:w-[360px] xl:w-[400px] lg:max-w-none aspect-[9/16] overflow-hidden rounded-sm">
+            <video
+              :key="videoActual"
+              :src="datos.videos[videoActual]"
+              class="video-clase w-full h-full object-cover"
+              autoplay
+              muted
+              :loop="datos.videos.length === 1"
+              playsinline
+              preload="metadata"
+              @ended="siguienteVideo"
+            ></video>
+          </div>
         </div>
       </div>
 
@@ -153,3 +146,10 @@ function siguienteVideo() {
   videoActual.value = (videoActual.value + 1) % datos.value.videos.length;
 }
 </script>
+
+<style scoped>
+/* Video de la clase: un poco más oscuro, bordes sin fundido (igual que el que tenía Team Rama) */
+.video-clase {
+  filter: brightness(0.7);
+}
+</style>

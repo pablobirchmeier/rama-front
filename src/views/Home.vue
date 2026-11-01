@@ -180,21 +180,9 @@
       </section>
 
       <!-- 05. TEAM RAMA -->
-      <section class="py-24 lg:py-32 px-6 max-w-[1300px] mx-auto w-full">
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <!-- sparring2.mp4 es vertical (720x1280): contenedor 9:16 para mostrarlo completo, sin recorte -->
-          <div class="relative mx-auto w-full max-w-[360px] lg:max-w-[400px] aspect-[9/16] overflow-hidden rounded-sm">
-            <video
-              class="video-fundido w-full h-full object-cover"
-              src="/sparring/sparring2.mp4"
-              autoplay
-              muted
-              loop
-              playsinline
-              preload="metadata"
-            ></video>
-          </div>
-          <div class="flex flex-col gap-6">
+      <section class="py-24 lg:py-32 px-6 max-w-3xl mx-auto w-full">
+        <div class="flex flex-col items-center text-center">
+          <div class="flex flex-col items-center gap-6">
             <span class="text-primary font-bold tracking-[0.4em] uppercase text-xs">Team Rama</span>
             <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tight leading-[0.95]">
               De la escuela<br />al <span class="text-primary">ring</span>
@@ -205,7 +193,7 @@
             <p class="text-white/60 text-base leading-relaxed font-light">
               Team Rama reúne a deportistas amateur y profesionales que representan a la escuela en distintas competencias.
             </p>
-            <div class="border-l-4 border-primary pl-5 py-1">
+            <div class="border-y border-primary/40 py-4">
               <p class="text-white text-base leading-relaxed">
                 No necesitas competir para pertenecer a Rama.<br />
                 <span class="text-primary font-bold">Pero si decides hacerlo, tenemos un camino para ti.</span>
@@ -213,7 +201,7 @@
             </div>
             <router-link
               to="/clases/muay-thai-combat"
-              class="self-start h-14 px-8 border-2 border-primary/50 hover:bg-primary/10 text-primary rounded-lg font-bold text-sm uppercase tracking-widest transition-all flex items-center gap-3"
+              class="h-14 px-8 border-2 border-primary/50 hover:bg-primary/10 text-primary rounded-lg font-bold text-sm uppercase tracking-widest transition-all flex items-center gap-3"
             >
               Conoce Team Rama
               <span class="material-symbols-outlined">arrow_forward</span>
@@ -511,10 +499,6 @@ const pasos = [
   .revelar {
     animation: none;
   }
-}
-/* Video Team Rama: un poco más oscuro, bordes sin fundido */
-.video-fundido {
-  filter: brightness(0.7);
 }
 .text-gold-gradient {
   background: linear-gradient(to bottom right, #FFD700, #FBBF24, #DAA520);
