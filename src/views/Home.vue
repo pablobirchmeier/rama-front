@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white transition-colors duration-300">
+  <div class="bg-background-dark text-white">
     <Navbar />
     <main class="flex flex-col">
       <!-- 1. HERO -->

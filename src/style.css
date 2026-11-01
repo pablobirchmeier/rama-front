@@ -11,8 +11,16 @@
     --font-display: "Lexend", "sans-serif";
 }
 
+/* El sitio es siempre oscuro, aunque el dispositivo esté en modo claro
+   (evita fondo blanco / textos azul marino en celulares en modo claro). */
+:root {
+    color-scheme: dark;
+}
+
 body {
     font-family: 'Lexend', sans-serif;
+    background-color: #000;
+    color: #fff;
 }
 
 .material-symbols-outlined {
