@@ -4,6 +4,7 @@ Sitio de la escuela **Rama Muay Thai** (Chile). Vue 3 + Vite + Vue Router (histo
 
 - Vistas en `src/views/`, layouts (Navbar/Footer) en `src/layouts/`, rutas en `src/router.js`.
 - Tokens de color (Tailwind v4 `@theme` en `src/style.css`): `primary`/`accent` = `#FFD700` (dorado), `background-dark` = `#000000`. Fuente display: Lexend.
+- **Páginas de clases** (Formativo, Amateur, Combat, Women, Cross): TODAS usan la plantilla `src/components/ClasePagina.vue` (prop `clase`); el contenido de cada una está en `src/data/clases.js`. Para cambiar el diseño, editar la plantilla; para cambiar textos/videos, editar `clases.js`. El lema/texto de Formativo, Amateur y Combat también lo usan las tarjetas del Inicio. La barra de horarios de cada clase se genera sola desde `horarios.js`.
 - Las clases "en desarrollo" usan el componente `src/components/ClaseEnDesarrollo.vue` (prop `nombre`).
 - El CTA "Unirse"/"Reservar" usa `openBoxMagic()` de `src/utils/deepLinking.js` (portal BoxMagic). `openBoxMagic()` NO redirige directo: abre el modal explicativo `src/components/BoxMagicModal.vue` (montado en `App.vue`), y la redirección real (`irABoxMagic()`) ocurre desde su botón "Ir a BoxMagic".
 
@@ -12,8 +13,7 @@ Sitio de la escuela **Rama Muay Thai** (Chile). Vue 3 + Vite + Vue Router (histo
 Fuente: flyers oficiales @ramamuaythai (HORARIO AM / HORARIO PM 2026). Mantener
 `src/data/horarios.js` (tablas `horarioAM`/`horarioPM`, única fuente: las usan el
 componente `src/components/HorarioPorDia.vue` —vista por día en Home y Horarios— y las
-tablas de semana completa de `Horarios.vue`) y la barra de datos de
-`src/views/MuayThaiFormativo.vue` sincronizados con esto.
+tablas de semana completa de `Horarios.vue` y la barra de horarios de cada clase) sincronizado con esto.
 
 ### AM (Lun a Sáb)
 
@@ -77,7 +77,6 @@ Aplicado (código):
 
 Pendiente (vos lo corrés una vez):
 - **`scripts/optimize-media.ps1`**: requiere `ffmpeg` + `magick` (ImageMagick). Re-encodea videos a MP4 H.264 ~1.5 Mbps / 1080p max y comprime JPGs (q78, 1920px max). Hace backup en `public/_original/` antes de tocar. Espera reducir ~370MB → ~50-70MB.
-- Después de correrlo, el único `.MOV` en código (`src/views/MuayThaiAmateur.vue` línea ~164, `/amateur/amateur2.MOV`) hay que cambiarlo a `.mp4` (el script convierte la extensión).
 
 ## Convenciones
 
