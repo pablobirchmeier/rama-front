@@ -114,7 +114,7 @@
 
 <script setup>
 import { ref, computed, watch, onMounted, nextTick } from 'vue';
-import { horarioAM, horarioPM, rutasClases, bloquesDelDia, diasLargos } from '../data/horarios';
+import { horarioAM, horarioPM, rutasClases, bloquesDelDia as bloquesDe, diasLargos } from '../data/horarios';
 
 const dias = diasLargos;
 
@@ -159,7 +159,7 @@ watch(diaActivo, (dia) => {
 });
 
 // Bloques del día ya unidos (ej. Combat 11:00 a 13:00), filtrados por disciplina si hay filtro
-const filasDe = (tabla, i) => bloquesDelDia(tabla, i, filtro.value);
+const filasDe = (tabla, i) => bloquesDe(tabla, i, filtro.value);
 
 function contarClases(i) {
   return [...filasDe(horarioAM, i), ...filasDe(horarioPM, i)].reduce((n, f) => n + f.clases.length, 0);
